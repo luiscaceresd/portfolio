@@ -13,7 +13,7 @@ const projects = [
   {
     title: "React Infinite Scroll",
     description:
-      "A scrollable bottom sheet with virtualisation support, native animations at 60 🔥️",
+      "A scrollable bottom sheet with virtualisation support, native animations at 60, it's just a javascript land! 🔥️",
     getImageSrc: () => require("../images/photo2.png"),
   },
   {
