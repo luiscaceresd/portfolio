@@ -2,6 +2,10 @@ import { Heading, Image, Text, VStack, Box, Link, useColorModeValue } from "@cha
 import React from "react";
 
 const Card = ({ title, description, imageSrc, href }) => {
+  const imageBoxBackground = useColorModeValue(
+    "radial-gradient(46.28% 66.31% at 66.95% 58.35%, #e6e6f7 0%, #e7edfa 50%, #e9fbfa 100%)", // Gradient for light mode
+    "linear-gradient(49.21deg, rgba(127, 127, 213, 0.2) 19.87%, rgba(134, 168, 231, 0.2) 58.46%, rgba(145, 234, 228, 0.2) 97.05%)" // Gradient for dark mode
+  );
   const backgroundColor = useColorModeValue("light.background", "dark.background");
   const fontColor = useColorModeValue("light.text", "dark.text");
   const borderColor = useColorModeValue("light.border", "dark.border");
@@ -15,7 +19,6 @@ const Card = ({ title, description, imageSrc, href }) => {
     <Link href={href} isExternal _hover={{ textDecoration: 'none' }}>
       <VStack
         spacing="0"
-        bg="white"
         color="black"
         align="justify"
         borderRadius="md"
@@ -32,7 +35,7 @@ const Card = ({ title, description, imageSrc, href }) => {
           }
         }}
       >
-        <Box align="center" borderBottom="1px" borderColor="#DEE8EC">
+        <Box align="center" borderBottom="1px" borderColor="#DEE8EC" bg={imageBoxBackground}>
           <Image
             src={imageSrc.substring(1)}
             alt={title}
