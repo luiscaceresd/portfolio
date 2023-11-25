@@ -3,7 +3,6 @@ import { extendTheme, theme as baseTheme } from "@chakra-ui/react";
 // Define your color mode config
 const config = {
   initialColorMode: "light",
-  useSystemColorMode: false,
 };
 
 // Define the colors for light mode and dark mode
