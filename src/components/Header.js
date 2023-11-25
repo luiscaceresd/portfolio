@@ -5,7 +5,7 @@ import {
   faGithub,
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
-import { Box, HStack, Link, Text, useBreakpointValue } from "@chakra-ui/react";
+import { Box, HStack, Link, Text, useBreakpointValue, useColorModeValue } from "@chakra-ui/react";
 import ColorModeSwitcher from "./ColorModeSwitcher";
 
 const socials = [
@@ -19,7 +19,7 @@ const socials = [
   },
   {
     icon: faLinkedin,
-    url: "https://www.linkedin.com/luiscaceresd",
+    url: "https://www.linkedin.com/in/luiscaceresd/",
   }
 ];
 
@@ -47,18 +47,25 @@ const Header = () => {
    const fontSize = useBreakpointValue({ base: 'md', md: 'xl', lg: '2xl' }); // Adjust font sizes for text
    const switchSize = useBreakpointValue({ base: 'md', md: 'xl', lg: '2xl' }); // Adjust switch sizes
 
+   // Access the current theme colors for background
+   const backgroundColor = useColorModeValue("light.background", "dark.background");
+   const fontColor = useColorModeValue("light.text", "dark.text");
+   const borderColor = useColorModeValue("light.border", "dark.border");
+
    return (
      <Box
        position="fixed"
        top={0}
        left={0}
        right={0}
-       backgroundColor="#18181b"
+       backgroundColor={backgroundColor} // Use theme color
        zIndex={1}
+       borderBottom="1px"
+       borderBottomColor={borderColor}
      >
        <Box
-         color="white"
-         maxWidth={{ base: "90%", md: "1280px" }}
+         color={fontColor} // Use theme color
+         maxWidth={{ base: "100%", md: "95%" }}
          width="full"
          margin="0 auto"
          paddingX={{ base: 4, md: 10 }}

@@ -11,6 +11,7 @@ import {
   Select,
   Textarea,
   VStack,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import * as Yup from "yup";
 import FullScreenSection from "./FullScreenSection";
@@ -20,6 +21,10 @@ import { useAlertContext } from "../context/alertContext";
 const LandingSection = () => {
   const { isLoading, response, submit } = useSubmit();
   const { onOpen } = useAlertContext();
+  const backgroundColor = useColorModeValue("light.background", "dark.background");
+  const fontColor = useColorModeValue("light.text", "dark.text");
+  const borderColor = useColorModeValue("light.border", "dark.border");
+  const buttonColor = useColorModeValue("light.buttonColor", "dark.buttonColor");
 
   const formik = useFormik({
     initialValues: {
@@ -50,18 +55,20 @@ const LandingSection = () => {
   return (
     <FullScreenSection
       isDarkBackground
-      backgroundColor="#512DA8"
+      backgroundColor={backgroundColor}
+      color={fontColor}
       py={{ base: 4, md: 16 }} // Less padding on the top and bottom on mobile
       spacing={8}
       display="flex" // Makes FullScreenSection a flex container
       flexDirection="column" // Stacks children vertically
       justifyContent="center" // Centers children vertically
       alignItems="center" // Centers children horizontally
-      minHeight={{ base: "80vh", md: "10vh" }} // Minimum height of 100% of the viewport height
+      minHeight={{ base: "80vh", md: "10vh" }}
+      minWidth={{ base: "92vw", md: "10vw" }}
     >
       <VStack
-        w={{ base: "90%", md: "1024px" }}
-        p={{ base: 8, md: 32 }}
+        w={{ base: "100%", md: "1024px" }}
+        py={{ base: 8, md: 32 }}
         alignItems="center"
       >
         <Heading as="h1" id="contactme-section">
@@ -117,9 +124,11 @@ const LandingSection = () => {
               </FormControl>
               <Button
                 type="submit"
-                colorScheme="purple"
+                backgroundColor={buttonColor}
+                color={backgroundColor}
                 width="full"
                 isLoading={isLoading}
+                fontSize={{ base: "md", md: "lg" }} // Adjusted font size for responsiveness
               >
                 Submit
               </Button>

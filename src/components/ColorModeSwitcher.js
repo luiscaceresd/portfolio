@@ -19,12 +19,12 @@ const ColorModeSwitcher = () => {
     >
       {/* Sun Icon */}
       {colorMode === 'light' && (
-        <Icon as={FaMoon} color="current" boxSize={iconSize} />
+        <Icon as={FaSun} color="current" boxSize={iconSize} />
       )}
 
       {/* Moon Icon */}
       {colorMode === 'dark' && (
-        <Icon as={FaSun} color="yellow.500" boxSize={iconSize} />
+        <Icon as={FaMoon} color="current" boxSize={iconSize} />
       )}
     </Switch>
   );
