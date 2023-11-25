@@ -39,6 +39,7 @@ const ProjectsSection = () => {
   return (
     <FullScreenSection
       backgroundColor={backgroundColor}
+      color={fontColor}
       isDarkBackground
       p={8}
       alignItems="center"

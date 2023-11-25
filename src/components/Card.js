@@ -19,7 +19,7 @@ const Card = ({ title, description, imageSrc, href }) => {
     <Link href={href} isExternal _hover={{ textDecoration: 'none' }}>
       <VStack
         spacing="0"
-        color="black"
+        color={fontColor}
         align="justify"
         borderRadius="md"
         borderWidth="1px"

@@ -1,0 +1,42 @@
+.icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative; /* If you're using absolute positioning inside */
+}
+
+.icon-hide {
+  visibility: hidden; /* Hides the element, but it still takes up space in the layout */
+  opacity: 0;
+  transition: visibility 0s 0.1s, opacity 0.5s linear;
+  transform: scale(0);
+}
+
+.icon-show {
+  visibility: visible; /* Shows the element */
+  opacity: 1;
+  transition: visibility 0s, opacity 0.5s linear;
+  transform: scale(1);
+  position: absolute;
+  top: 0;
+  text-align: center; /* Center the icon horizontally */
+  transform: translateX(-50%); /* Adjust horizontal centering */
+}
+
+.icon-show-2{
+  visibility: visible; /* Shows the element */
+  opacity: 1;
+  transition: visibility 0s, opacity 0.5s linear;
+  transform: scale(1);
+  position: absolute;
+  top: 0;
+  left: 50%; /* Center the icon horizontally */
+  transform: translateX(-50%); /* Adjust horizontal centering */
+}
+
+.enjoy-show {
+  visibility: visible; /* Shows the element */
+  opacity: 1;
+  transition: visibility 0s, opacity 1s ease-in;
+  transform: scale(1);
+}
