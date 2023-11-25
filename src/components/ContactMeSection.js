@@ -71,7 +71,7 @@ const LandingSection = () => {
         py={{ base: 8, md: 32 }}
         alignItems="center"
       >
-        <Heading as="h1" id="contactme-section">
+        <Heading as="h1" id="contactme-section" size={{ base: "lg", md: "lg" }}>
           Contact me
         </Heading>
         <Box p={6} rounded="md" w="100%">

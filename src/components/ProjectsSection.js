@@ -41,7 +41,6 @@ const ProjectsSection = () => {
       backgroundColor={backgroundColor}
       color={fontColor}
       isDarkBackground
-      p={8}
       alignItems="center"
       spacing={8}
       display="flex" // Makes FullScreenSection a flex container
@@ -50,7 +49,7 @@ const ProjectsSection = () => {
       minHeight={{ base: "80vh", md: "20vh" }}
       minWidth={{ base: "95vw", md: "10vw" }}
     >
-      <Heading as="h1" id="projects-section">
+      <Heading as="h1" id="projects-section" size={{ base: "lg", md: "lg" }}>
         Featured Projects
       </Heading>
       <Box

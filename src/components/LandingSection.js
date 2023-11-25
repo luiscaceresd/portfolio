@@ -77,7 +77,7 @@ const LandingSection = () => {
             }}
           />{" "}
           {/* Responsive avatar size */}
-          <Heading as="h1" size={{ base: "md", md: "lg" }}>
+          <Heading as="h1" size={{ base: "lg", md: "lg" }}>
             {" "}
             {/* Responsive font size */}
             Hello, I'm Luis!
@@ -86,10 +86,10 @@ const LandingSection = () => {
         <VStack spacing={{ base: "24px", md: "48px" }}>
           {/* Adjusted spacing */}
           <VStack spacing={{ base: "8px", md: "16px" }}>
-            <Heading as="h2" size={{ base: "lg", md: "2xl" }}>
+            <Heading as="h2" size={{ base: "md", md: "2xl" }}>
               {/* Responsive font size */}A FullStack Blockchain Developer
             </Heading>
-            <Heading as="h2" size={{ base: "lg", md: "2xl" }}>
+            <Heading as="h2" size={{ base: "md", md: "2xl" }}>
               {/* Responsive font size */}
               specialised in React
             </Heading>

@@ -74,10 +74,10 @@ const Header = () => {
          <HStack
            justifyContent="space-between"
            alignItems="center"
-           spacing={{ base: 3, md: 6 }}
+           spacing={{ base: 1, md: 6 }}
          >
            <nav>
-             <HStack spacing={{ base: 3, md: 6 }}>
+             <HStack spacing={{ base: 1, md: 6 }}>
                {socials.map(({ icon, url }) => (
                  <Link key={url} href={url} isExternal p={{ base: 1, md: 2 }}>
                    <FontAwesomeIcon icon={icon} size={iconSize} />
@@ -93,7 +93,7 @@ const Header = () => {
                    Projects
                  </Text>
                  <Text as={Link} href="#contact-me" onClick={handleClick('contactme')} fontSize={fontSize}>
-                   Contact&nbsp;Me
+                   Contact
                  </Text>
                </HStack>
              </nav>
