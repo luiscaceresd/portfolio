@@ -68,7 +68,7 @@ const Header = () => {
          maxWidth={{ base: "100%", md: "95%" }}
          width="full"
          margin="0 auto"
-         paddingX={{ base: 4, md: 10 }}
+         paddingX={{ base: 1, md: 10 }}
          paddingY={{ base: 3, md: 6 }}
        >
          <HStack
