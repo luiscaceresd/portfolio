@@ -28,7 +28,7 @@ const Card = ({ title, description, imageSrc, href }) => {
         boxShadow={boxShadow}
         transition="all 0.2s ease-in-out"
         _hover={{
-          transform: 'scale(1.03)',
+          transform: 'scale(1.02)',
           opacity: 1.5,
           '.card-heading': { // Custom class for heading
             color: headingColorHover// Change color on hover
