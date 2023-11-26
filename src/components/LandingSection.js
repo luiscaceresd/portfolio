@@ -6,6 +6,7 @@ import {
   useColorModeValue,
   Icon,
   Box,
+  Text,
 } from "@chakra-ui/react";
 import { GoChevronDown } from "react-icons/go";
 import { FaSmile } from "react-icons/fa";
@@ -98,9 +99,9 @@ const LandingSection = () => {
             <FontAwesomeIcon icon={['fas', 'angle-down']} beatFade size="4x" className={!hasScrolled ? "icon-show" : "icon-hide"} />
             <FontAwesomeIcon icon={['fab', 'ethereum']} fade size="4x" className={hasScrolled ? "icon-show-2" : "icon-hide"}/>
           </Box>
-          <Heading as="h1" size={{ base: "md", md: "lg" }} className={hasScrolled ? "enjoy-show" : "icon-hide"} >
+          <Text fontSize={{ base: "md", md: "2xl" }} className={hasScrolled ? "enjoy-show" : "icon-hide"} >
               Enjoy! <FontAwesomeIcon icon={['fas', 'rocket']} size="x" />
-          </Heading>
+          </Text>
         </VStack>
       </VStack>
     </FullScreenSection>

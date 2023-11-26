@@ -64,7 +64,7 @@ const LandingSection = () => {
       justifyContent="center" // Centers children vertically
       alignItems="center" // Centers children horizontally
       minHeight={{ base: "80vh", md: "10vh" }}
-      minWidth={{ base: "92vw", md: "10vw" }}
+      minWidth={{ base: "95vw", md: "10vw" }}
     >
       <VStack
         w={{ base: "100%", md: "1024px" }}
@@ -74,7 +74,7 @@ const LandingSection = () => {
         <Heading as="h1" id="contactme-section" size={{ base: "lg", md: "lg" }}>
           Contact me
         </Heading>
-        <Box p={6} rounded="md" w="100%">
+        <Box py={6} rounded="md" w="100%">
           <form onSubmit={formik.handleSubmit}>
             <VStack spacing={4}>
               <FormControl

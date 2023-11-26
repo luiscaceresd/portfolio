@@ -19,7 +19,7 @@ const projects = [
   {
     title: "Photo Gallery",
     description:
-      "A One-stop shop for photographers to share and monetize their photos, allowing them to have a second source of income",
+      "A One-stop shop for photographers to share and monetize their photos, giving them a source of income",
     getImageSrc: () => require("../images/photo3.png"),
   },
   {
@@ -48,6 +48,7 @@ const ProjectsSection = () => {
       justifyContent="center" // Centers children vertically
       minHeight={{ base: "80vh", md: "20vh" }}
       minWidth={{ base: "95vw", md: "10vw" }}
+      zIndex={1}
     >
       <Heading as="h1" id="projects-section" size={{ base: "lg", md: "lg" }}>
         Featured Projects
@@ -55,7 +56,7 @@ const ProjectsSection = () => {
       <Box
         display="grid"
         gridTemplateColumns={{ base: "repeat(1,minmax(0,1fr))", md: "repeat(2,minmax(0,1fr))"}}
-        gridGap={8}
+        gridGap={6}
       >
         {projects.map((project) => (
           <Card
