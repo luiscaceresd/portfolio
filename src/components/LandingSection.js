@@ -88,7 +88,7 @@ const LandingSection = () => {
           {/* Adjusted spacing */}
           <VStack spacing={{ base: "8px", md: "16px" }}>
             <Heading as="h2" size={{ base: "md", md: "2xl" }}>
-              {/* Responsive font size */}FullStack Blockchain Developer
+              {/* Responsive font size */}Full Stack Blockchain Developer
             </Heading>
             <Heading as="h2" size={{ base: "md", md: "2xl" }}>
               {/* Responsive font size */}
