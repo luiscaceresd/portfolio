@@ -12,28 +12,28 @@ const projects = [
     title: "Node.js Nasa Mission Dashboard",
     description:
       "A dashboard to scehdule and monitor rocket launches, built with Node.js, React, and MongoDB",
-    getImageSrc: () => require("../images/photo1.png"),
+    imageSrc: Image1,
     url: "http://luiscodes.net:8000",
   },
   {
     title: "React Reservations Engine",
     description:
       "A restaurant landing page with a reservations engine, built with React and TailwindCSS",
-    getImageSrc: () => require("../images/photo2.png"),
+    imageSrc: Image2,
     url: "https://react-reservations-engine.netlify.app/",
   },
   {
     title: "Photo Gallery",
     description:
       "A One-stop shop for photographers to share and monetize their photos, giving them a source of income",
-    getImageSrc: () => require("../images/photo3.png"),
+    imageSrc: Image3,
     url: "https://facebook.com",
   },
   {
     title: "Event planner",
     description:
       "A mobile application for leisure seekers to discover unique events and activities in their city with a few taps",
-    getImageSrc: () => require("../images/photo4.png"),
+    imageSrc: Image4,
     url: "https://twitter.com",
   },
 ];
@@ -76,7 +76,7 @@ const ProjectsSection = () => {
             key={project.url}
             title={project.title}
             description={project.description}
-            imageSrc={project.getImageSrc()}
+            imageSrc={project.imageSrc}
             href={project.url}
           />
         ))}
