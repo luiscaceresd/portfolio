@@ -9,18 +9,18 @@ import Image4 from "../images/photo4.png";
 
 const projects = [
   {
-    title: "Node.js Nasa Mission Dashboard",
-    description:
-      "A dashboard to scehdule and monitor rocket launches, built with Node.js, React, and MongoDB",
-    imageSrc: Image1,
-    url: "http://luiscodes.net:8000",
-  },
-  {
     title: "React Reservations Engine",
     description:
       "A restaurant landing page with a reservations engine, built with React and TailwindCSS",
-    imageSrc: Image2,
+    imageSrc: Image1,
     url: "https://react-reservations-engine.netlify.app/",
+  },
+  {
+    title: "Node.js Nasa Mission Dashboard",
+    description:
+      "A dashboard to scehdule and monitor rocket launches, built with Node.js, EC2 and Express",
+    imageSrc: Image2,
+    url: "http://luiscodes.net:8000",
   },
   {
     title: "Photo Gallery",
