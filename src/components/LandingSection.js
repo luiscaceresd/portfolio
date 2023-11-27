@@ -66,7 +66,7 @@ const LandingSection = () => {
         {/* Adjusted spacing */}
         <VStack spacing="16px">
           <Avatar
-            size={{ base: "2xl", md: "3xl" }}
+            size={{ base: "2xl", md: "2xl" }}
             name="Luis"
             src={ProfilePicture}
             borderColor={borderColor}
