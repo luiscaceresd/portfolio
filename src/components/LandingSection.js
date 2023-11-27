@@ -95,13 +95,15 @@ const LandingSection = () => {
               specialised in React
             </Heading>
           </VStack>
+          <VStack spacing={{ base: "24px", md: "48px" }}>
           <Box className="icon-container">
             <FontAwesomeIcon icon={['fas', 'angle-down']} beatFade size="4x" className={!hasScrolled ? "icon-show" : "icon-hide"} />
-            <FontAwesomeIcon icon={['fab', 'ethereum']} fade size="4x" className={hasScrolled ? "icon-show-2" : "icon-hide"}/>
+            <FontAwesomeIcon icon={['fab', 'ethereum']} size="4x" className={hasScrolled ? "icon-show-2" : "icon-hide"}/>
           </Box>
           <Text fontSize={{ base: "md", md: "2xl" }} className={hasScrolled ? "enjoy-show" : "icon-hide"} >
               Enjoy! <FontAwesomeIcon icon={['fas', 'rocket']} size="xl" />
           </Text>
+          </VStack>
         </VStack>
       </VStack>
     </FullScreenSection>
