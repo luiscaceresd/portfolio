@@ -101,7 +101,7 @@ const LandingSection = () => {
             <FontAwesomeIcon icon={['fab', 'ethereum']} size="4x" className={hasScrolled ? "icon-show-2" : "icon-hide"}/>
           </Box>
           <Text fontSize={{ base: "md", md: "2xl" }} className={hasScrolled ? "enjoy-show" : "icon-hide"} >
-              Enjoy! <FontAwesomeIcon icon={['fas', 'rocket']} size="xl" />
+              Enjoy!
           </Text>
           </VStack>
         </VStack>
