@@ -59,7 +59,7 @@ const Header = () => {
        left={0}
        right={0}
        backgroundColor={backgroundColor} // Use theme color
-       zIndex={2}
+       zIndex={0}
        borderBottom="1px"
        borderBottomColor={borderColor}
      >
