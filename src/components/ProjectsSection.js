@@ -20,7 +20,7 @@ const projects = [
     description:
       "A dashboard to scehdule and monitor rocket launches, built with Node.js, EC2 and Express",
     imageSrc: Image2,
-    url: "http://luiscodes.net:8000",
+    url: "http://quantumleap.com.co:8000/",
   },
   {
     title: "Multiplayer Pong Game",
