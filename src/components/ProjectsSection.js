@@ -23,18 +23,18 @@ const projects = [
     url: "http://luiscodes.net:8000",
   },
   {
-    title: "Photo Gallery",
+    title: "Multiplayer Pong Game",
     description:
-      "A One-stop shop for photographers to share and monetize their photos, giving them a source of income",
+      "A two people multiplayer pong game, built with Node.js, Socket.io and Express",
     imageSrc: Image3,
-    url: "https://facebook.com",
+    url: "https://github.com/luiscaceresd/multiplayer-pong",
   },
   {
-    title: "Event planner",
+    title: "NFT Marketplace (Cooming Soon)",
     description:
-      "A mobile application for leisure seekers to discover unique events and activities in their city with a few taps",
+      "A marketplace to buy and sell NFTs, built with Solidity, React and Hardhat",
     imageSrc: Image4,
-    url: "https://twitter.com",
+    url: "https://github.com/luiscaceresd/nft-marketplace",
   },
 ];
 
