@@ -30,11 +30,11 @@ const projects = [
     url: "https://github.com/luiscaceresd/multiplayer-pong",
   },
   {
-    title: "NFT Marketplace (Cooming Soon)",
+    title: "Blockchain Kickstarter (In Progress)",
     description:
-      "A marketplace to buy and sell NFTs, built with Solidity, React and Hardhat",
+      "A crowdfunding platform built on top of the Ethereum blockchain, built with Solidity, React, Hardhat and Thirdweb",
     imageSrc: Image4,
-    url: "https://github.com/luiscaceresd/nft-marketplace",
+    url: "https://github.com/luiscaceresd/crowdfunding",
   },
 ];
 
