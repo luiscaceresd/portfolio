@@ -32,7 +32,7 @@ const projects = [
   {
     title: "Blockchain Kickstarter (In Progress)",
     description:
-      "A crowdfunding platform built on top of the Ethereum blockchain, built with Solidity, React, Hardhat and Thirdweb",
+      "A crowdfunding platform built with Solidity, React, Hardhat and Thirdweb",
     imageSrc: Image4,
     url: "https://github.com/luiscaceresd/crowdfunding",
   },
