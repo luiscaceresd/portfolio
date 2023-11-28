@@ -43,9 +43,9 @@ const Header = () => {
     whiteSpace: "nowrap" // Prevent wrapping of text
   };
    // Use breakpoint values to adjust icon and text sizes for different screen sizes
-   const iconSize = useBreakpointValue({ base: 'xl', md: 'xl', lg: '2xl' }); // Adjust icon sizes
-   const fontSize = useBreakpointValue({ base: 'md', md: 'xl', lg: '2xl' }); // Adjust font sizes for text
-   const switchSize = useBreakpointValue({ base: 'md', md: 'xl', lg: '2xl' }); // Adjust switch sizes
+   const iconSize = useBreakpointValue({ base: 'xl', md: 'xl', lg: 'xl' }); // Adjust icon sizes
+   const fontSize = useBreakpointValue({ base: 'md', md: 'xl', lg: 'xl' }); // Adjust font sizes for text
+   const switchSize = useBreakpointValue({ base: 'md', md: 'xl', lg: 'xl' }); // Adjust switch sizes
 
    // Access the current theme colors for background
    const backgroundColor = useColorModeValue("light.background", "dark.background");
@@ -69,7 +69,7 @@ const Header = () => {
          width="full"
          margin="0 auto"
          paddingX={{ base: 1, md: 10 }}
-         paddingY={{ base: 3, md: 6 }}
+         paddingY={{ base: 1, md: 2 }}
        >
          <HStack
            justifyContent="space-between"

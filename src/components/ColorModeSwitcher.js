@@ -6,7 +6,7 @@ const ColorModeSwitcher = () => {
   const { colorMode, toggleColorMode } = useColorMode();
 
   // Define icon sizes for different breakpoints
-  const iconSize = useBreakpointValue({ base: '6', md: '8', lg: '10' }); // Adjust these values as needed
+  const iconSize = useBreakpointValue({ base: '6', md: '6', lg: '8' }); // Adjust these values as needed
 
   return (
     <Switch
