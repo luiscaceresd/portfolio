@@ -33,7 +33,7 @@ const projects = [
     title: "Multiplayer Pong Game",
     description:
       "A two people multiplayer pong game, built with Node.js, Socket.io and Express",
-    imageSrc: Image4,
+    imageSrc: Image3,
     url: "https://github.com/luiscaceresd/multiplayer-pong",
   },
 ];
