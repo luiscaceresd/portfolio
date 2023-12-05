@@ -13,7 +13,7 @@ const projects = [
     description:
       "A crowdfunding platform built with Solidity, React, Hardhat and Thirdweb",
     imageSrc: Image2,
-    url: "https://crowfunding-luis.netlify.app/",
+    url: "https://quantumfund.netlify.app/",
   },
   {
     title: "React Reservations Engine",
