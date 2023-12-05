@@ -9,6 +9,13 @@ import Image4 from "../images/photo4.png";
 
 const projects = [
   {
+    title: "Blockchain Kickstarter",
+    description:
+      "A crowdfunding platform built with Solidity, React, Hardhat and Thirdweb",
+    imageSrc: Image2,
+    url: "https://crowfunding-luis.netlify.app/",
+  },
+  {
     title: "React Reservations Engine",
     description:
       "A restaurant landing page with a reservations engine, built with React and TailwindCSS",
@@ -19,22 +26,15 @@ const projects = [
     title: "Node.js Nasa Mission Dashboard",
     description:
       "A dashboard to scehdule and monitor rocket launches, built with Node.js, EC2 and Express",
-    imageSrc: Image2,
+    imageSrc: Image4,
     url: "http://quantumleap.com.co:8000/",
   },
   {
     title: "Multiplayer Pong Game",
     description:
       "A two people multiplayer pong game, built with Node.js, Socket.io and Express",
-    imageSrc: Image3,
-    url: "https://github.com/luiscaceresd/multiplayer-pong",
-  },
-  {
-    title: "Blockchain Kickstarter (In Progress)",
-    description:
-      "A crowdfunding platform built with Solidity, React, Hardhat and Thirdweb",
     imageSrc: Image4,
-    url: "https://github.com/luiscaceresd/crowdfunding",
+    url: "https://github.com/luiscaceresd/multiplayer-pong",
   },
 ];
 
