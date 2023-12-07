@@ -44,7 +44,7 @@ const ProjectsSection = () => {
     "dark.background"
   );
   const fontColor = useColorModeValue("light.text", "dark.text");
-  const borderColor = useColorModeValue("light.border", "dark.border");
+  const borderColor = useColorModeValue("light.border", "dark.border"); 
 
   return (
     <FullScreenSection
