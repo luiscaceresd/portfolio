@@ -27,7 +27,7 @@ const projects = [
     description:
       "A dashboard to scehdule and monitor rocket launches, built with Node.js, EC2 and Express",
     imageSrc: Image4,
-    url: "http://quantumleap.com.co:8000/",
+    url: "https://github.com/luiscaceresd/nasa-project",
   },
   {
     title: "Multiplayer Pong Game",
