@@ -30,7 +30,9 @@ const socials: SocialLink[] = [
   }
 ];
 
-const Header = () => {
+// React 19 uses function declaration syntax by default
+function Header() {
+  // Use the new explicit anchor ID format
   const handleClick = (anchor: string) => () => {
     const id = `${anchor}-section`;
     const element = document.getElementById(id);
@@ -49,6 +51,7 @@ const Header = () => {
     transition: "all 0.3s ease-in-out",
     whiteSpace: "nowrap" // Prevent wrapping of text
   };
+   
    // Use breakpoint values to adjust icon and text sizes for different screen sizes
    const iconSize = useBreakpointValue<SizeProp>({ base: 'lg', md: 'xl', lg: 'xl' }); // Adjust icon sizes
    const fontSize = useBreakpointValue({ base: 'md', md: 'xl', lg: 'xl' }); // Adjust font sizes for text
@@ -113,6 +116,6 @@ const Header = () => {
        </Box>
      </Box>
    );
- };
+ }
 
 export default Header;

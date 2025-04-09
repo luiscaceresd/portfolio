@@ -10,11 +10,11 @@ interface FullScreenSectionProps extends StackProps {
 /**
  * Illustrates the use of children prop and spread operator
  */
-const FullScreenSection: React.FC<FullScreenSectionProps> = ({ 
+function FullScreenSection({ 
   children, 
   isDarkBackground, 
   ...boxProps 
-}) => {
+}: FullScreenSectionProps) {
   return (
     <VStack
       backgroundColor={boxProps.backgroundColor}
@@ -25,6 +25,6 @@ const FullScreenSection: React.FC<FullScreenSectionProps> = ({
       </VStack>
     </VStack>
   );
-};
+}
 
 export default FullScreenSection;

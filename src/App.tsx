@@ -15,7 +15,8 @@ import { fab, faEthereum } from "@fortawesome/free-brands-svg-icons"
 
 library.add(fas, faEthereum, faAngleDown, faRocket, fab)
 
-const App: React.FC = () => {
+// Using the new React 19 function component pattern without explicit React.FC
+function App() {
   return (
     <ChakraProvider theme={theme}>
       <ColorModeScript initialColorMode={theme.config.initialColorMode} />
@@ -33,4 +34,4 @@ const App: React.FC = () => {
   )
 }
 
-export default App 
+export default App
