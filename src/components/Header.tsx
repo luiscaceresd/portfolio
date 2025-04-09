@@ -7,24 +7,31 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { Box, HStack, Link, Text, useBreakpointValue, useColorModeValue } from "@chakra-ui/react";
 import ColorModeSwitcher from "./ColorModeSwitcher";
+import { IconProp } from "@fortawesome/fontawesome-svg-core";
+import { SizeProp } from "@fortawesome/fontawesome-svg-core";
 
-const socials = [
+interface SocialLink {
+  icon: IconProp;
+  url: string;
+}
+
+const socials: SocialLink[] = [
   {
-    icon: faEnvelope,
+    icon: faEnvelope as IconProp,
     url: "mailto: luisdeveloper97@outlook.com",
   },
   {
-    icon: faGithub,
+    icon: faGithub as IconProp,
     url: "https://github.com/luiscaceresd",
   },
   {
-    icon: faLinkedin,
+    icon: faLinkedin as IconProp,
     url: "https://www.linkedin.com/in/luiscaceresd/",
   }
 ];
 
 const Header = () => {
-  const handleClick = (anchor) => () => {
+  const handleClick = (anchor: string) => () => {
     const id = `${anchor}-section`;
     const element = document.getElementById(id);
     if (element) {
@@ -43,7 +50,7 @@ const Header = () => {
     whiteSpace: "nowrap" // Prevent wrapping of text
   };
    // Use breakpoint values to adjust icon and text sizes for different screen sizes
-   const iconSize = useBreakpointValue({ base: 'xl', md: 'xl', lg: 'xl' }); // Adjust icon sizes
+   const iconSize = useBreakpointValue<SizeProp>({ base: 'lg', md: 'xl', lg: 'xl' }); // Adjust icon sizes
    const fontSize = useBreakpointValue({ base: 'md', md: 'xl', lg: 'xl' }); // Adjust font sizes for text
    const switchSize = useBreakpointValue({ base: 'md', md: 'xl', lg: 'xl' }); // Adjust switch sizes
 
@@ -80,7 +87,7 @@ const Header = () => {
              <HStack spacing={{ base: 1, md: 6 }}>
                {socials.map(({ icon, url }) => (
                  <Link key={url} href={url} isExternal p={{ base: 1, md: 2 }}>
-                   <FontAwesomeIcon icon={icon} size={iconSize} />
+                   <FontAwesomeIcon icon={icon} size={iconSize || 'lg'} />
                  </Link>
                ))}
              </HStack>

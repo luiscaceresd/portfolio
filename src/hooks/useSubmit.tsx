@@ -1,6 +1,21 @@
 import {useState} from "react";
 
-const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+// Define types for the response
+interface SubmitResponse {
+  type: 'success' | 'error';
+  message: string;
+}
+
+// Define type for submit data
+interface SubmitData {
+  firstName: string;
+  email: string;
+  type: string;
+  comment: string;
+  [key: string]: string;
+}
+
+const wait = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 /**
  * This is a custom hook that can be used to submit a form and simulate an API call
@@ -8,9 +23,9 @@ const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
  */
 const useSubmit = () => {
   const [isLoading, setLoading] = useState(false);
-  const [response, setResponse] = useState(null);
+  const [response, setResponse] = useState<SubmitResponse | null>(null);
 
-  const submit = async (url, data) => {
+  const submit = async (url: string, data: SubmitData) => {
     const random = Math.random();
     setLoading(true);
     try {

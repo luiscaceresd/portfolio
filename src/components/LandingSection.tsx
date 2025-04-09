@@ -11,11 +11,12 @@ import {
 import { GoChevronDown } from "react-icons/go";
 import { FaSmile } from "react-icons/fa";
 import FullScreenSection from "./FullScreenSection";
-import ProfilePicture from "../images/ProfilePic.png";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-// Access the current theme colors for background
+// Import ProfilePicture
+import ProfilePicture from "../images/ProfilePic.png";
 
+// Access the current theme colors for background
 const LandingSection = () => {
   // Correct placement of useColorModeValue hooks
   const backgroundColor = useColorModeValue(

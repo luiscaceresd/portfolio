@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useFormik } from "formik";
+import { useFormik, FormikErrors, FormikTouched } from "formik";
 import {
   Box,
   Button,
@@ -18,7 +18,15 @@ import FullScreenSection from "./FullScreenSection";
 import useSubmit from "../hooks/useSubmit";
 import { useAlertContext } from "../context/alertContext";
 
-const LandingSection = () => {
+interface FormValues {
+  firstName: string;
+  email: string;
+  type: string;
+  comment: string;
+  [key: string]: string;
+}
+
+const ContactMeSection = () => {
   const { isLoading, response, submit } = useSubmit();
   const { onOpen } = useAlertContext();
   const backgroundColor = useColorModeValue("light.background", "dark.background");
@@ -26,7 +34,7 @@ const LandingSection = () => {
   const borderColor = useColorModeValue("light.border", "dark.border");
   const buttonColor = useColorModeValue("light.buttonColor", "dark.buttonColor");
 
-  const formik = useFormik({
+  const formik = useFormik<FormValues>({
     initialValues: {
       firstName: "",
       email: "",
@@ -78,23 +86,21 @@ const LandingSection = () => {
           <form onSubmit={formik.handleSubmit}>
             <VStack spacing={4}>
               <FormControl
-                isInvalid={formik.errors.firstName && formik.touched.firstName}
+                isInvalid={Boolean(formik.errors.firstName && formik.touched.firstName)}
               >
                 <FormLabel htmlFor="firstName">Name</FormLabel>
                 <Input
                   id="firstName"
-                  name="firstName"
                   {...formik.getFieldProps("firstName")}
                 />
                 <FormErrorMessage>{formik.errors.firstName}</FormErrorMessage>
               </FormControl>
               <FormControl
-                isInvalid={formik.errors.email && formik.touched.email}
+                isInvalid={Boolean(formik.errors.email && formik.touched.email)}
               >
                 <FormLabel htmlFor="email">Email Address</FormLabel>
                 <Input
                   id="email"
-                  name="email"
                   type="email"
                   {...formik.getFieldProps("email")}
                 />
@@ -102,7 +108,7 @@ const LandingSection = () => {
               </FormControl>
               <FormControl>
                 <FormLabel htmlFor="type">Type of enquiry</FormLabel>
-                <Select id="type" name="type" {...formik.getFieldProps("type")}>
+                <Select id="type" {...formik.getFieldProps("type")}>
                   <option value="hireMe">Freelance project proposal</option>
                   <option value="openSource">
                     Open source consultancy session
@@ -111,12 +117,11 @@ const LandingSection = () => {
                 </Select>
               </FormControl>
               <FormControl
-                isInvalid={formik.errors.comment && formik.touched.comment}
+                isInvalid={Boolean(formik.errors.comment && formik.touched.comment)}
               >
                 <FormLabel htmlFor="comment">Your message</FormLabel>
                 <Textarea
                   id="comment"
-                  name="comment"
                   height={{ base: 150, md: 250 }} // Adjusted height for responsiveness
                   {...formik.getFieldProps("comment")}
                 />
@@ -140,4 +145,4 @@ const LandingSection = () => {
   );
 };
 
-export default LandingSection;
+export default ContactMeSection;

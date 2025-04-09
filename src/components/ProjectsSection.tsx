@@ -2,12 +2,21 @@ import React from "react";
 import FullScreenSection from "./FullScreenSection";
 import { Box, Heading, useColorModeValue, Link } from "@chakra-ui/react";
 import Card from "./Card";
+
+// Import images
 import Image1 from "../images/photo1.png";
 import Image2 from "../images/photo2.png";
 import Image3 from "../images/photo3.png";
 import Image4 from "../images/photo4.png";
 
-const projects = [
+interface Project {
+  title: string;
+  description: string;
+  imageSrc: string;
+  url: string;
+}
+
+const projects: Project[] = [
   {
     title: "Blockchain Kickstarter",
     description:

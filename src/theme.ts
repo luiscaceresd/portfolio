@@ -1,12 +1,26 @@
-import { extendTheme, theme as baseTheme } from "@chakra-ui/react";
+import { extendTheme, theme as baseTheme, ThemeConfig } from "@chakra-ui/react";
 
 // Define your color mode config
-const config = {
+const config: ThemeConfig = {
   initialColorMode: "light",
+  useSystemColorMode: false,
 };
 
 // Define the colors for light mode and dark mode
-const colors = {
+interface ColorMode {
+  background: string;
+  text: string;
+  border: string;
+  buttonColor: string;
+  headingColorHover: string;
+}
+
+interface CustomColors {
+  light: ColorMode;
+  dark: ColorMode;
+}
+
+const colors: CustomColors = {
   light: {
     background: "white",
     text: "black",
@@ -31,4 +45,4 @@ const theme = extendTheme({
   colors,
 });
 
-export default theme;
+export default theme; 

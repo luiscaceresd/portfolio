@@ -1,10 +1,20 @@
 import * as React from "react";
-import { VStack } from "@chakra-ui/react";
+import { VStack, StackProps } from "@chakra-ui/react";
+
+interface FullScreenSectionProps extends StackProps {
+  children: React.ReactNode;
+  isDarkBackground: boolean;
+  backgroundColor?: string;
+}
 
 /**
  * Illustrates the use of children prop and spread operator
  */
-const FullScreenSection = ({ children, isDarkBackground, ...boxProps }) => {
+const FullScreenSection: React.FC<FullScreenSectionProps> = ({ 
+  children, 
+  isDarkBackground, 
+  ...boxProps 
+}) => {
   return (
     <VStack
       backgroundColor={boxProps.backgroundColor}
