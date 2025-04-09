@@ -12,9 +12,9 @@ interface SubmitResponse {
 export interface SubmitData {
   firstName: string;
   email: string;
-  type: string;
+  type?: string;
   comment: string;
-  [key: string]: string;
+  [key: string]: string | undefined;
 }
 
 const wait = (ms: number): Promise<void> => 

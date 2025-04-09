@@ -1,14 +1,17 @@
 import React from "react";
-import {Box, Flex} from "@chakra-ui/react";
+import { Box, Flex, useColorModeValue } from "@chakra-ui/react";
 
 const Footer = () => {
+  const backgroundColor = useColorModeValue("light.background", "dark.background");
+  const textColor = useColorModeValue("light.text", "dark.text");
+
   return (
-    <Box backgroundColor="#18181b">
+    <Box backgroundColor={backgroundColor}>
       <footer>
         <Flex
           margin="0 auto"
           px={12}
-          color="white"
+          color={textColor}
           justifyContent="center"
           alignItems="center"
           maxWidth="1024px"
@@ -20,4 +23,5 @@ const Footer = () => {
     </Box>
   );
 };
+
 export default Footer;

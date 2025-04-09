@@ -3,7 +3,7 @@ import { extendTheme, theme as baseTheme, ThemeConfig } from "@chakra-ui/react";
 // Define your color mode config
 const config: ThemeConfig = {
   initialColorMode: "light",
-  useSystemColorMode: false,
+  useSystemColorMode: true,
 };
 
 // Define the colors for light mode and dark mode
@@ -20,22 +20,21 @@ interface CustomColors {
   dark: ColorMode;
 }
 
+// Use CSS variables from our tailwind/shadcn theme when possible
 const colors: CustomColors = {
   light: {
-    background: "white",
-    text: "black",
-    border: "black",
-    buttonColor: "#1C1CFF",
-    headingColorHover: "#1C1CFF",
-    // other colors for light mode
+    background: "var(--background, white)",
+    text: "var(--foreground, black)",
+    border: "var(--border, #e2e8f0)",
+    buttonColor: "var(--primary, #1C1CFF)",
+    headingColorHover: "var(--primary, #1C1CFF)",
   },
   dark: {
-    background: "black",
-    text: "white",
-    border: "2F3336",
-    buttonColor: "#FF7324",
-    headingColorHover: "#FF7324",
-    // other colors for dark mode
+    background: "var(--background, black)",
+    text: "var(--foreground, white)",
+    border: "var(--border, #2F3336)",
+    buttonColor: "var(--primary, #FF7324)",
+    headingColorHover: "var(--primary, #FF7324)",
   },
 };
 
@@ -43,6 +42,14 @@ const colors: CustomColors = {
 const theme = extendTheme({
   config,
   colors,
+  styles: {
+    global: (props: any) => ({
+      body: {
+        bg: props.colorMode === 'dark' ? 'dark.background' : 'light.background',
+        color: props.colorMode === 'dark' ? 'dark.text' : 'light.text',
+      },
+    }),
+  },
 });
 
 export default theme; 

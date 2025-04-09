@@ -18,7 +18,7 @@ function ContactMeSection() {
       isDarkBackground
       backgroundColor={backgroundColor}
       color={fontColor}
-      py={{ base: 4, md: 16 }}
+      py={{ base: 8, md: 16 }}
       spacing={8}
       display="flex"
       flexDirection="column"
@@ -28,14 +28,29 @@ function ContactMeSection() {
       minWidth={{ base: "95vw", md: "10vw" }}
     >
       <VStack
-        w={{ base: "100%", md: "1024px" }}
-        py={{ base: 8, md: 32 }}
+        w={{ base: "95%", md: "800px" }}
+        maxW="100%"
+        py={{ base: 8, md: 16 }}
         alignItems="center"
+        spacing={8}
       >
-        <Heading as="h1" id="contactme-section" size={{ base: "lg", md: "lg" }}>
+        <Heading 
+          as="h1" 
+          id="contactme-section" 
+          size={{ base: "xl", md: "2xl" }}
+          fontWeight="bold"
+          textAlign="center"
+          mb={4}
+        >
           Contact me
         </Heading>
-        <Box py={6} rounded="md" w="100%">
+        <Box 
+          py={4} 
+          px={{ base: 3, md: 0 }}
+          rounded="xl" 
+          w="100%" 
+          maxW="100%"
+        >
           <ContactForm />
         </Box>
       </VStack>

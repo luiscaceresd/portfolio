@@ -12,25 +12,39 @@ import "./animations.css" // Adjust the path as necessary
 import { library } from "@fortawesome/fontawesome-svg-core"
 import { fas, faAngleDown, faRocket } from "@fortawesome/free-solid-svg-icons"
 import { fab, faEthereum } from "@fortawesome/free-brands-svg-icons"
+import { ThemeProvider } from "./components/theme-provider"
 
 library.add(fas, faEthereum, faAngleDown, faRocket, fab)
 
 // Using the new React 19 function component pattern without explicit React.FC
 function App() {
+  // Get initial theme from localStorage or system preference
+  const getInitialTheme = (): "light" | "dark" | "system" => {
+    const savedTheme = localStorage.getItem("vite-ui-theme") as "light" | "dark" | "system";
+    const chakraTheme = localStorage.getItem("chakra-ui-color-mode") as "light" | "dark";
+    
+    if (savedTheme) return savedTheme;
+    if (chakraTheme) return chakraTheme;
+    
+    return "system";
+  };
+
   return (
-    <ChakraProvider theme={theme}>
-      <ColorModeScript initialColorMode={theme.config.initialColorMode} />
-      <AlertProvider>
-        <main>
-          <Header />
-          <LandingSection />
-          <ProjectsSection />
-          <ContactMeSection />
-          <Footer />
-          <Alert />
-        </main>
-      </AlertProvider>
-    </ChakraProvider>
+    <ThemeProvider defaultTheme={getInitialTheme()} storageKey="vite-ui-theme">
+      <ChakraProvider theme={theme}>
+        <ColorModeScript initialColorMode={theme.config.initialColorMode} />
+        <AlertProvider>
+          <main>
+            <Header />
+            <LandingSection />
+            <ProjectsSection />
+            <ContactMeSection />
+            <Footer />
+            <Alert />
+          </main>
+        </AlertProvider>
+      </ChakraProvider>
+    </ThemeProvider>
   )
 }
 
