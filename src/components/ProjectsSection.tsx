@@ -1,6 +1,5 @@
 import React from "react";
-import FullScreenSection from "./FullScreenSection";
-import { Box, Heading, useColorModeValue, Link } from "@chakra-ui/react";
+import { Box, Heading, Link } from "@chakra-ui/react";
 import Card from "./Card";
 
 // Import images
@@ -48,49 +47,34 @@ const projects: Project[] = [
 ];
 
 const ProjectsSection = () => {
-  const backgroundColor = useColorModeValue(
-    "light.background",
-    "dark.background"
-  );
-  const fontColor = useColorModeValue("light.text", "dark.text");
-  const borderColor = useColorModeValue("light.border", "dark.border"); 
-
   return (
-    <FullScreenSection
-      backgroundColor={backgroundColor}
-      color={fontColor}
-      isDarkBackground
-      alignItems="center"
-      spacing={8}
-      display="flex" // Makes FullScreenSection a flex container
-      flexDirection="column" // Stacks children vertically
-      justifyContent="center" // Centers children vertically
-      minHeight={{ base: "80vh", md: "20vh" }}
-      minWidth={{ base: "95vw", md: "10vw" }}
-      zIndex={1}
-    >
-      <Heading as="h1" id="projects-section" size={{ base: "lg", md: "lg" }}>
-        Featured Projects
-      </Heading>
-      <Box
-        display="grid"
-        gridTemplateColumns={{
-          base: "repeat(1,minmax(0,1fr))",
-          md: "repeat(2,minmax(0,1fr))",
-        }}
-        gridGap={6}
-      >
-        {projects.map((project) => (
-          <Card
-            key={project.url}
-            title={project.title}
-            description={project.description}
-            imageSrc={project.imageSrc}
-            href={project.url}
-          />
-        ))}
-      </Box>
-    </FullScreenSection>
+    <section className="w-full min-h-screen py-16 flex flex-col items-center justify-center 
+                        bg-white dark:bg-slate-950 text-slate-800 dark:text-blue-100 
+                        z-[1]">
+      <div className="w-full max-w-4xl px-4 py-8 md:py-16 flex flex-col items-center space-y-8">
+        <Heading as="h1" id="projects-section" size={{ base: "lg", md: "lg" }} className="mb-4">
+          Featured Projects
+        </Heading>
+        <Box
+          display="grid"
+          gridTemplateColumns={{
+            base: "repeat(1,minmax(0,1fr))",
+            md: "repeat(2,minmax(0,1fr))",
+          }}
+          gridGap={6}
+        >
+          {projects.map((project) => (
+            <Card
+              key={project.url}
+              title={project.title}
+              description={project.description}
+              imageSrc={project.imageSrc}
+              href={project.url}
+            />
+          ))}
+        </Box>
+      </div>
+    </section>
   );
 };
 

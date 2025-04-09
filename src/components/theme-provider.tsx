@@ -32,8 +32,11 @@ export function ThemeProvider({
 
   useEffect(() => {
     const root = window.document.documentElement
+    const body = window.document.body
 
-    root.classList.remove("light", "dark")
+    // Force remove dark from both elements
+    root.classList.remove("dark", "light")
+    body.classList.remove("dark", "light")
 
     if (theme === "system") {
       const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
@@ -42,21 +45,20 @@ export function ThemeProvider({
         : "light"
 
       root.classList.add(systemTheme)
-      
-      // Sync with Chakra UI by setting color-mode in localStorage
-      localStorage.setItem("chakra-ui-color-mode", systemTheme)
+      body.classList.add(systemTheme)
+      console.log("System theme applied:", systemTheme)
       return
     }
 
+    console.log("Theme applied:", theme)
     root.classList.add(theme)
-    
-    // Sync with Chakra UI by setting color-mode in localStorage
-    localStorage.setItem("chakra-ui-color-mode", theme)
+    body.classList.add(theme)
   }, [theme])
 
   const value = {
     theme,
     setTheme: (theme: Theme) => {
+      console.log("Setting theme to:", theme)
       localStorage.setItem(storageKey, theme)
       setTheme(theme)
     },

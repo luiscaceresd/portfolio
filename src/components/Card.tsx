@@ -1,4 +1,4 @@
-import { Heading, Image, Text, VStack, Box, Link, useColorModeValue } from "@chakra-ui/react";
+import { Heading, Image, Text, VStack, Box, Link } from "@chakra-ui/react";
 import React from "react";
 
 interface CardProps {
@@ -9,40 +9,21 @@ interface CardProps {
 }
 
 const Card: React.FC<CardProps> = ({ title, description, imageSrc, href }) => {
-  const imageBoxBackground = useColorModeValue(
-    "radial-gradient(46.28% 66.31% at 66.95% 58.35%, #e6e6f7 0%, #e7edfa 50%, #e9fbfa 100%)", // Gradient for light mode
-    "linear-gradient(49.21deg, rgba(127, 127, 213, 0.2) 19.87%, rgba(134, 168, 231, 0.2) 58.46%, rgba(145, 234, 228, 0.2) 97.05%)" // Gradient for dark mode
-  );
-  const backgroundColor = useColorModeValue("light.background", "dark.background");
-  const fontColor = useColorModeValue("light.text", "dark.text");
-  const borderColor = useColorModeValue("light.border", "dark.border");
-  const headingColorHover = useColorModeValue("light.headingColorHover", "dark.headingColorHover"); // Define hover color for the heading
-  const boxShadow = useColorModeValue(
-    "0 4px 12px rgba(28, 28, 255, 0.5)", // Light mode boxShadow
-    "0 4px 12px rgba(255, 115, 36, 0.8)" // Dark mode boxShadow
-  );
-
   return (
     <Link href={href} isExternal _hover={{ textDecoration: 'none' }}>
       <VStack
         spacing="0"
-        color={fontColor}
         align="justify"
         borderRadius="md"
         borderWidth="1px"
-        borderColor={fontColor}
+        borderColor="currentColor"
         cursor="pointer"
-        boxShadow={boxShadow}
-        transition="all 0.2s ease-in-out"
-        _hover={{
-          transform: 'scale(1.02)',
-          opacity: 1.5,
-          '.card-heading': { // Custom class for heading
-            color: headingColorHover// Change color on hover
-          }
-        }}
+        className="shadow-lg dark:shadow-orange-500/30 shadow-blue-500/30 transition-all duration-200 
+                   text-slate-800 dark:text-slate-200 hover:scale-102 hover:opacity-100"
       >
-        <Box textAlign="center" borderBottom="1px" borderColor="#DEE8EC" bg={imageBoxBackground}>
+        <Box textAlign="center" borderBottom="1px" borderColor="#DEE8EC" 
+             className="bg-gradient-to-br from-slate-100 via-blue-50 to-slate-100 
+                      dark:bg-gradient-to-br dark:from-blue-900/20 dark:via-purple-900/20 dark:to-teal-900/20">
           <Image
             src={imageSrc.substring(1)}
             alt={title}
@@ -56,18 +37,16 @@ const Card: React.FC<CardProps> = ({ title, description, imageSrc, href }) => {
           spacing="12px"
           paddingBottom={{ base: "12px", md: "12px" }}
           paddingTop={{ base: "12px", md: "12px" }}
-          bg={backgroundColor}
-          color={fontColor}
           align="justify"
           borderBottomRadius="md"
+          className="bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200"
         >
           <Heading
             as="h4"
             size="md"
             margin="0 12px 0 12px"
-            color={fontColor}
-            transition="all 0.3s ease-in-out"
-            className="card-heading" // Assigning custom class to heading
+            className="text-slate-800 dark:text-blue-100 transition-colors duration-300 
+                     hover:text-blue-600 dark:hover:text-blue-400"
           >
             {title}
           </Heading>

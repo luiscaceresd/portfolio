@@ -5,7 +5,6 @@ import {
   faGithub,
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
-import { Box, HStack, Link, Text, useBreakpointValue, useColorModeValue } from "@chakra-ui/react";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { SizeProp } from "@fortawesome/fontawesome-svg-core";
 import { ModeToggle } from "./mode-toggle";
@@ -44,76 +43,52 @@ function Header() {
     }
   };
 
-  const hoverStyle = {
-    textDecoration: "none",
-    color: "teal.300",
-    transform: "scale(1.05)", // Scale up the link slightly on hover
-    transition: "all 0.3s ease-in-out",
-    whiteSpace: "nowrap" // Prevent wrapping of text
-  };
-   
-  // Use breakpoint values to adjust icon and text sizes for different screen sizes
-  const iconSize = useBreakpointValue<SizeProp>({ base: 'lg', md: 'xl', lg: 'xl' }); // Adjust icon sizes
-  const fontSize = useBreakpointValue({ base: 'md', md: 'xl', lg: 'xl' }); // Adjust font sizes for text
-
-  // Access the current theme colors for background
-  const backgroundColor = useColorModeValue("light.background", "dark.background");
-  const fontColor = useColorModeValue("light.text", "dark.text");
-  const borderColor = useColorModeValue("light.border", "dark.border");
-
   return (
-    <Box
-      position="fixed"
-      top={0}
-      left={0}
-      right={0}
-      backgroundColor={backgroundColor} // Use theme color
-      zIndex={2}
-      borderBottom="1px"
-      borderBottomColor={borderColor}
-      className="shadow-sm transition-colors"
-    >
-      <Box
-        color={fontColor} // Use theme color
-        maxWidth={{ base: "100%", md: "95%" }}
-        width="full"
-        margin="0 auto"
-        paddingX={{ base: 1, md: 10 }}
-        paddingY={{ base: 1, md: 2 }}
-      >
-        <HStack
-          justifyContent="space-between"
-          alignItems="center"
-          spacing={{ base: 1, md: 6 }}
-        >
+    <header className="fixed top-0 left-0 right-0 bg-white dark:bg-slate-950 z-10 border-b border-slate-200 dark:border-slate-800 shadow-sm transition-colors">
+      <div className="w-full max-w-[95%] mx-auto px-1 py-1 md:px-10 md:py-2 text-slate-800 dark:text-slate-200">
+        <div className="flex justify-between items-center">
           <nav>
-            <HStack spacing={{ base: 1, md: 6 }}>
+            <div className="flex space-x-1 md:space-x-6">
               {socials.map(({ icon, url }) => (
-                <Link key={url} href={url} isExternal p={{ base: 1, md: 2 }}>
-                  <FontAwesomeIcon icon={icon} size={iconSize || 'lg'} />
-                </Link>
+                <a 
+                  key={url} 
+                  href={url} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="p-1 md:p-2 hover:text-teal-500 hover:scale-105 transition-all duration-300"
+                >
+                  <FontAwesomeIcon icon={icon} size={(window.innerWidth < 768 ? 'lg' : 'xl') as SizeProp} />
+                </a>
               ))}
-            </HStack>
+            </div>
           </nav>
 
-          <HStack spacing={{ base: 3, md: 6 }}>
+          <div className="flex items-center space-x-3 md:space-x-6">
             <nav>
-              <HStack spacing={{ base: 3, md: 6 }}>
-                <Text as={Link} href="#projects" onClick={handleClick('projects')} fontSize={fontSize}>
+              <div className="flex space-x-3 md:space-x-6">
+                <a 
+                  href="#projects" 
+                  onClick={handleClick('projects')}
+                  className="text-md md:text-xl hover:text-teal-500 hover:scale-105 transition-all duration-300 whitespace-nowrap"
+                >
                   Projects
-                </Text>
-                <Text as={Link} href="#contact-me" onClick={handleClick('contactme')} fontSize={fontSize}>
+                </a>
+                <a 
+                  href="#contact-me" 
+                  onClick={handleClick('contactme')}
+                  className="text-md md:text-xl hover:text-teal-500 hover:scale-105 transition-all duration-300 whitespace-nowrap"
+                >
                   Contact
-                </Text>
-              </HStack>
+                </a>
+              </div>
             </nav>
-            <Box>
+            <div>
               <ModeToggle />
-            </Box>
-          </HStack>
-        </HStack>
-      </Box>
-    </Box>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
   );
 }
 

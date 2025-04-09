@@ -1,9 +1,8 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-@theme {
-  /* Custom theme values can be added here */
-}
+/* Define dark mode variant with new Tailwind 4 syntax */
+@custom-variant dark (&:where(.dark, .dark *));
 
 body {
   margin: 0;
@@ -14,8 +13,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-html {
-  background-color: #18181b;
+html,
+body {
+  @apply bg-white dark:bg-slate-950;
+  transition: background-color 0.3s ease;
 }
 
 code {
@@ -135,6 +136,6 @@ code {
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply text-foreground;
   }
 }
