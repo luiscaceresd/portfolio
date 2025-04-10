@@ -40,17 +40,17 @@ const LandingSection = () => {
             alt="Luis"
             className="rounded-full w-32 h-32 md:w-40 md:h-40 border-3 border-gray-300 dark:border-gray-700 shadow-xl transition-transform duration-200 hover:scale-105 cursor-pointer"
           />
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary dark:text-primary">
+          <h1 className="!text-4xl md:!text-5xl lg:!text-6xl font-bold text-primary dark:text-primary">
             Hello, I'm Luis!
           </h1>
         </div>
         
         <div className="flex flex-col items-center gap-8 md:gap-12">
           <div className="flex flex-col items-center gap-3 md:gap-4">
-            <h2 className="text-2xl md:text-4xl lg:text-5xl font-semibold text-center text-slate-800 dark:text-slate-100">
+            <h2 className="!text-2xl md:!text-4xl lg:!text-5xl font-semibold text-center text-slate-800 dark:text-slate-100">
               Full Stack Blockchain Developer
             </h2>
-            <h3 className="text-xl md:text-3xl lg:text-4xl font-bold text-center text-blue-600 dark:text-blue-400 decoration-2">
+            <h3 className="!text-xl md:!text-3xl lg:!text-4xl font-bold text-center text-blue-600 dark:text-blue-400 decoration-2">
               specialised in React
             </h3>
           </div>

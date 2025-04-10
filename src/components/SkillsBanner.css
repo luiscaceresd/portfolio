@@ -1,0 +1,117 @@
+/* SkillsBanner.css */
+.skills-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 1.5rem 0;
+}
+
+.skills-track {
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 0.5rem 0;
+  display: flex;
+  align-items: center;
+}
+
+.skills-track:hover {
+  animation-play-state: paused;
+}
+
+.skill-item {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4rem 1rem;
+  margin: 0 0.25rem;
+  border-radius: 2rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  transition: all 0.2s ease;
+}
+
+/* Dark mode specific styles */
+:root.dark .skill-item {
+  box-shadow: 0 0 1px 1px rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.15);
+}
+
+:root.dark .negative-track .skill-item {
+  box-shadow: 0 0 1px 1px rgba(168, 85, 247, 0.1);
+  border: 1px solid rgba(168, 85, 247, 0.15);
+}
+
+/* Hover styles for both light and dark mode */
+.skill-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  z-index: 10;
+}
+
+/* Dark mode hover styles */
+:root.dark .skill-item:hover {
+  box-shadow: 0 4px 16px rgba(59, 130, 246, 0.2);
+}
+
+:root.dark .negative-track .skill-item:hover {
+  box-shadow: 0 4px 16px rgba(168, 85, 247, 0.2);
+}
+
+/* Animation for the first track (left to right) */
+.positive-track {
+  animation: scroll-positive 40s linear infinite;
+}
+
+@keyframes scroll-positive {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-33.33%); /* Move one set of items */
+  }
+}
+
+/* Animation for the second track (right to left) */
+.negative-track {
+  animation: scroll-negative 40s linear infinite;
+}
+
+@keyframes scroll-negative {
+  0% {
+    transform: translateX(-33.33%); /* Start one set in */
+  }
+  100% {
+    transform: translateX(0); /* Move back to start */
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .positive-track {
+    animation-duration: 25s;
+  }
+
+  .negative-track {
+    animation-duration: 25s;
+  }
+
+  .skill-item {
+    padding: 0.35rem 0.8rem;
+    margin: 0 0.2rem;
+    font-size: 0.75rem;
+  }
+}
+
+/* Ensure the tracks have enough content for smooth scrolling */
+.positive-track,
+.negative-track {
+  width: max-content;
+  gap: 0.5rem;
+}
+
+/* Bullet styling */
+.skills-track span.mx-3 {
+  opacity: 0.7;
+  font-size: 1.2rem;
+}

@@ -12,6 +12,7 @@ import { library } from "@fortawesome/fontawesome-svg-core"
 import { fas, faAngleDown, faRocket } from "@fortawesome/free-solid-svg-icons"
 import { fab, faEthereum } from "@fortawesome/free-brands-svg-icons"
 import { ThemeProvider } from "./components/theme-provider"
+import SkillsBanner from "./components/SkillsBanner"
 
 library.add(fas, faEthereum, faAngleDown, faRocket, fab)
 
@@ -33,6 +34,7 @@ function App() {
           <main>
             <Header />
             <LandingSection />
+            <SkillsBanner />
             <ProjectsSection />
             <ContactMeSection />
             <Footer />

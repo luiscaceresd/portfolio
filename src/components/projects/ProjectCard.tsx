@@ -23,10 +23,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
       href={project.url}
       target="_blank"
       rel="noopener noreferrer"
-      className="h-full flex flex-col rounded-lg shadow-md border border-gray-200 dark:border-gray-700 overflow-hidden bg-white dark:bg-gray-800 hover:-translate-y-1 hover:shadow-xl transition-all duration-300 no-underline"
+      className="h-full flex flex-col rounded-lg overflow-hidden bg-white dark:bg-gray-800/80 hover:-translate-y-1 transition-all duration-300 no-underline
+      border border-gray-200 hover:border-gray-300 shadow-md hover:shadow-xl
+      dark:border-gray-700/60 dark:hover:border-blue-500/30 
+      dark:shadow-[0_4px_20px_-2px_rgba(66,99,235,0.12)] 
+      dark:hover:shadow-[0_8px_30px_rgba(66,99,235,0.18)]"
     >
       {/* Image Container - Larger height */}
-      <div className="w-full bg-gray-100 dark:bg-gray-700 flex-shrink-0">
+      <div className="w-full bg-gray-100 dark:bg-gray-800 flex-shrink-0">
         {imageError ? (
           <div className="flex flex-col items-center justify-center h-60 w-full text-gray-500 dark:text-gray-400">
             <FiImage className="w-16 h-16" />
@@ -54,7 +58,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
       </div>
       
       {/* Content Container - Larger text and padding */}
-      <div className="p-6 flex flex-col flex-grow border-t border-gray-200 dark:border-gray-700">
+      <div className="p-6 flex flex-col flex-grow border-t border-gray-200 dark:border-t-gray-700/40">
         <h3 className="text-xl font-semibold text-gray-800 dark:text-white">
           {project.title}
         </h3>
@@ -67,13 +71,15 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           {project.tags.slice(0, 3).map((tag) => (
             <span
               key={tag}
-              className="px-3 py-1 text-sm font-medium rounded-full bg-blue-50 text-blue-600 dark:bg-blue-900/20 dark:text-blue-300"
+              className="px-3 py-1 text-sm font-medium rounded-full bg-blue-50 text-blue-600 
+              dark:bg-blue-900/30 dark:text-blue-300 dark:border dark:border-blue-700/30"
             >
               {tag}
             </span>
           ))}
           {project.tags.length > 3 && (
-            <span className="px-3 py-1 text-sm font-medium rounded-full bg-gray-100 text-gray-600 dark:bg-gray-700 dark:text-gray-300">
+            <span className="px-3 py-1 text-sm font-medium rounded-full bg-gray-100 text-gray-600 
+            dark:bg-gray-700/80 dark:text-gray-300 dark:border dark:border-gray-600/30">
               +{project.tags.length - 3}
             </span>
           )}
