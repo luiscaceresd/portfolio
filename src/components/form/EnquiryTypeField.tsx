@@ -27,33 +27,29 @@ export function EnquiryTypeField({ control }: EnquiryTypeFieldProps) {
       render={({ field }) => (
         <FormItem className="transition-all duration-200 hover:translate-y-[-2px]">
           <FormLabel className="font-medium text-slate-700 dark:text-blue-100">
-            Type of enquiry
+            Type of Enquiry
           </FormLabel>
           <Select onValueChange={field.onChange} defaultValue={field.value}>
             <FormControl>
-              <SelectTrigger 
-                className="rounded-lg shadow-sm border bg-slate-50 dark:bg-slate-800/50 
-                           border-slate-200 dark:border-slate-700/80 text-slate-900 dark:text-white 
-                           focus:ring-blue-400/50 focus-visible:ring-blue-400/70"
-              >
-                <SelectValue placeholder="Select the type of your enquiry" />
+              <SelectTrigger className="h-14 p-6 w-full rounded-lg shadow-sm
+                                      bg-slate-50 dark:bg-slate-800/50 
+                                      border-slate-200 dark:border-slate-700/80
+                                      text-slate-900 dark:text-white
+                                      focus-visible:ring-blue-400/70">
+                <SelectValue placeholder="Select type of enquiry" />
               </SelectTrigger>
             </FormControl>
-            <SelectContent className="rounded-lg bg-white dark:bg-slate-900 
-                                     border-slate-200 dark:border-slate-800 dark:text-white 
-                                     backdrop-blur-sm backdrop-filter">
-              <SelectItem value="hireMe" className="focus:bg-blue-50 dark:focus:bg-blue-500/20 hover:bg-slate-50 dark:hover:bg-slate-800">
-                Freelance project proposal
-              </SelectItem>
-              <SelectItem value="openSource" className="focus:bg-blue-50 dark:focus:bg-blue-500/20 hover:bg-slate-50 dark:hover:bg-slate-800">
-                Open source consultancy session
-              </SelectItem>
-              <SelectItem value="other" className="focus:bg-blue-50 dark:focus:bg-blue-500/20 hover:bg-slate-50 dark:hover:bg-slate-800">
-                Other
-              </SelectItem>
+            <SelectContent className="rounded-lg border 
+                                    bg-white dark:bg-slate-800
+                                    border-slate-200 dark:border-slate-700
+                                    text-slate-900 dark:text-white
+                                    shadow-md">
+              <SelectItem value="freelance">Freelance project proposal</SelectItem>
+              <SelectItem value="opportunity">Job opportunity</SelectItem>
+              <SelectItem value="question">General question</SelectItem>
             </SelectContent>
+            <FormMessage className="text-xs text-red-400" />
           </Select>
-          <FormMessage className="text-xs text-red-400" />
         </FormItem>
       )}
     />

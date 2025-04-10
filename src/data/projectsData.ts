@@ -7,34 +7,34 @@ export type Project = {
   tags: string[];
 };
 
-// Sample project data
+// Project data
 export const projects: Project[] = [
   {
-    title: "Blockchain Kickstarter",
-    description: "Decentralized crowdfunding platform built on Ethereum with smart contracts",
+    title: "Lezgo - Car Rental OTA",
+    description: "Built a scalable Car Rental OTA using Next.js 15, React, Supabase, Prisma, and PostgreSQL, with Zod validation and ACLs.",
     getImageSrc: () => "/images/photo2.png",
-    url: "https://github.com/yourusername/blockchain-kickstarter",
-    tags: ["React", "Solidity", "Web3.js", "Ethereum"]
+    url: "https://lezgo.co",
+    tags: ["Next.js", "React", "Supabase", "Prisma", "PostgreSQL"]
   },
   {
-    title: "React Reservations Engine",
-    description: "A responsive restaurant reservation system with real-time availability",
+    title: "Bric AI - Business Manager",
+    description: "AI business manager with natural SQL queries, form builder, and comprehensive business tools built with Next.js, Turbo repo, and Supabase.",
     getImageSrc: () => "/images/photo3.png",
-    url: "https://github.com/yourusername/react-reservations",
-    tags: ["React", "Node.js", "MongoDB", "Express"]
+    url: "https://lezgo-bric.vercel.app/",
+    tags: ["Next.js", "Shadcn", "Supabase", "Vercel AI SDK", "Drizzle"]
   },
   {
-    title: "AI Image Generator",
-    description: "Web application that generates custom images using machine learning models",
+    title: "Compa.Chat - AI Therapist",
+    description: "Created an AI-powered therapy chatbot with Vercel AI SDK and OpenAI, featuring real-time response streaming and secure data handling.",
     getImageSrc: () => "/images/photo1.png",
-    url: "https://github.com/yourusername/ai-image-generator",
-    tags: ["Python", "React", "TensorFlow", "Flask"]
+    url: "https://www.compa.chat/",
+    tags: ["Next.js", "Next Auth", "OpenAI", "PostgreSQL", "Vercel"]
   },
   {
-    title: "E-commerce Platform",
-    description: "Full-featured online store with payment processing and inventory management",
+    title: "Elemental Arena - 3D Game",
+    description: "Developing an interactive 3D game using Three.js and Next.js, with real-time rendering and scalable architecture leveraging Grok 3 (xAI).",
     getImageSrc: () => "/images/photo4.png",
-    url: "https://github.com/yourusername/ecommerce-platform",
-    tags: ["Next.js", "Stripe", "Prisma", "PostgreSQL"]
+    url: "https://elemental-arena.vercel.app",
+    tags: ["Three.js", "Next.js", "Grok 3", "Vercel", "3D Rendering"]
   }
 ]; 

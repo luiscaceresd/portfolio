@@ -71,7 +71,7 @@ function ContactForm() {
 
           <Button 
             type="submit" 
-            className="w-full rounded-lg py-6 text-base font-medium transition-all duration-300 
+            className="w-full rounded-lg py-6 !text-base font-medium transition-all duration-300 
                       bg-gradient-to-r from-blue-600 to-blue-500 dark:bg-blue-500 dark:hover:bg-blue-400
                       hover:shadow-lg hover:shadow-blue-300/20 dark:hover:shadow-blue-500/20 hover:translate-y-[-2px] 
                       text-white focus:ring-2 focus:ring-blue-500/50"

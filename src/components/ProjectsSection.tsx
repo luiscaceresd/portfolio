@@ -34,19 +34,21 @@ const ProjectsSection = () => {
   }, []);
 
   return (
-    <FullScreenSection
-      isDarkBackground={false}
-      className="px-8 py-16 flex flex-col items-start space-y-8"
-    >
-      <div className="w-full flex flex-col items-center space-y-8">
-        <ProjectsHeader />
-        {imagesLoaded ? (
-          <ProjectsGrid projects={projects} />
-        ) : (
-          <ProjectsLoading />
-        )}
-      </div>
-    </FullScreenSection>
+    <section id="projects">
+      <FullScreenSection
+        isDarkBackground={false}
+        className="py-16 flex flex-col items-start space-y-8"
+      >
+        <div className="w-full flex flex-col items-center space-y-8">
+          <ProjectsHeader />
+          {imagesLoaded ? (
+            <ProjectsGrid projects={projects} />
+          ) : (
+            <ProjectsLoading />
+          )}
+        </div>
+      </FullScreenSection>
+    </section>
   );
 };
 

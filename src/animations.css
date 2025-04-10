@@ -8,14 +8,18 @@
 .icon-hide {
   visibility: hidden; /* Hides the element, but it still takes up space in the layout */
   opacity: 0;
-  transition: visibility 0s 0.1s, opacity 0.5s linear;
+  transition:
+    visibility 0s 0.1s,
+    opacity 0.5s linear;
   transform: scale(0);
 }
 
 .icon-show {
   visibility: visible; /* Shows the element */
   opacity: 1;
-  transition: visibility 0s, opacity 0.5s linear;
+  transition:
+    visibility 0s,
+    opacity 0.5s linear;
   transform: scale(1);
   position: absolute;
   top: 0;
@@ -23,10 +27,12 @@
   transform: translateX(-50%); /* Adjust horizontal centering */
 }
 
-.icon-show-2{
+.icon-show-2 {
   visibility: visible; /* Shows the element */
   opacity: 1;
-  transition: visibility 0s, opacity 0.5s linear;
+  transition:
+    visibility 0s,
+    opacity 0.5s linear;
   transform: scale(1);
   position: absolute;
   top: 0;
@@ -37,6 +43,28 @@
 .enjoy-show {
   visibility: visible; /* Shows the element */
   opacity: 1;
-  transition: visibility 0s, opacity 0.5s ease-in;
+  transition:
+    visibility 0s,
+    opacity 0.5s ease-in;
   transform: scale(1);
+}
+
+/* Animated gradient text */
+.animate-gradient-text {
+  background-image: linear-gradient(90deg, #3b82f6, #8b5cf6, #6366f1, #3b82f6);
+  background-size: 300% 100%;
+  background-clip: text;
+  animation: gradient-x 8s ease infinite;
+}
+
+@keyframes gradient-x {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }

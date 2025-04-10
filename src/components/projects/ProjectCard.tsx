@@ -68,7 +68,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         </p>
         
         <div className="flex flex-wrap gap-2 mt-4">
-          {project.tags.slice(0, 3).map((tag) => (
+          {project.tags.map((tag) => (
             <span
               key={tag}
               className="px-3 py-1 text-sm font-medium rounded-full bg-blue-50 text-blue-600 
@@ -77,12 +77,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
               {tag}
             </span>
           ))}
-          {project.tags.length > 3 && (
-            <span className="px-3 py-1 text-sm font-medium rounded-full bg-gray-100 text-gray-600 
-            dark:bg-gray-700/80 dark:text-gray-300 dark:border dark:border-gray-600/30">
-              +{project.tags.length - 3}
-            </span>
-          )}
         </div>
       </div>
     </a>

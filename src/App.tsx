@@ -1,8 +1,7 @@
-import React from "react"
-import { ChakraProvider } from "@chakra-ui/react"
 import Header from "./components/Header"
 import LandingSection from "./components/LandingSection"
 import ProjectsSection from "./components/ProjectsSection"
+import DemoReelSection from "./components/DemoReelSection"
 import ContactMeSection from "./components/ContactMeSection"
 import Footer from "./components/Footer"
 import { AlertProvider } from "./context/alertContext"
@@ -29,19 +28,18 @@ function App() {
 
   return (
     <ThemeProvider defaultTheme={getInitialTheme()} storageKey="vite-ui-theme">
-      <ChakraProvider>
         <AlertProvider>
           <main>
             <Header />
             <LandingSection />
             <SkillsBanner />
             <ProjectsSection />
+            <DemoReelSection />
             <ContactMeSection />
             <Footer />
             <Alert />
           </main>
         </AlertProvider>
-      </ChakraProvider>
     </ThemeProvider>
   )
 }
