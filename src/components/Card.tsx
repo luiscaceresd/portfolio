@@ -1,5 +1,5 @@
-import { Heading, Image, Text, VStack, Box, Link, useColorModeValue } from "@chakra-ui/react";
 import React from "react";
+import { Link } from "@chakra-ui/react";
 
 interface CardProps {
   title: string;
@@ -8,74 +8,41 @@ interface CardProps {
   href: string;
 }
 
-const Card: React.FC<CardProps> = ({ title, description, imageSrc, href }) => {
-  const imageBoxBackground = useColorModeValue(
-    "radial-gradient(46.28% 66.31% at 66.95% 58.35%, #e6e6f7 0%, #e7edfa 50%, #e9fbfa 100%)", // Gradient for light mode
-    "linear-gradient(49.21deg, rgba(127, 127, 213, 0.2) 19.87%, rgba(134, 168, 231, 0.2) 58.46%, rgba(145, 234, 228, 0.2) 97.05%)" // Gradient for dark mode
-  );
-  const backgroundColor = useColorModeValue("light.background", "dark.background");
-  const fontColor = useColorModeValue("light.text", "dark.text");
-  const borderColor = useColorModeValue("light.border", "dark.border");
-  const headingColorHover = useColorModeValue("light.headingColorHover", "dark.headingColorHover"); // Define hover color for the heading
-  const boxShadow = useColorModeValue(
-    "0 4px 12px rgba(28, 28, 255, 0.5)", // Light mode boxShadow
-    "0 4px 12px rgba(255, 115, 36, 0.8)" // Dark mode boxShadow
-  );
-
+const Card = ({ title, description, imageSrc, href }: CardProps) => {
   return (
-    <Link href={href} isExternal _hover={{ textDecoration: 'none' }}>
-      <VStack
-        spacing="0"
-        color={fontColor}
-        align="justify"
-        borderRadius="md"
-        borderWidth="1px"
-        borderColor={fontColor}
-        cursor="pointer"
-        boxShadow={boxShadow}
-        transition="all 0.2s ease-in-out"
-        _hover={{
-          transform: 'scale(1.02)',
-          opacity: 1.5,
-          '.card-heading': { // Custom class for heading
-            color: headingColorHover// Change color on hover
-          }
-        }}
+    <Link
+      href={href}
+      isExternal
+      _hover={{ textDecoration: "none" }}
+      style={{ display: 'block', width: '100%' }}
+    >
+      <div 
+        className="flex flex-col border border-slate-300 dark:border-slate-700 rounded-md shadow-md dark:shadow-[0_4px_12px_rgba(255,115,36,0.8)] hover:scale-[1.02] transition-all duration-200 overflow-hidden"
       >
-        <Box textAlign="center" borderBottom="1px" borderColor="#DEE8EC" bg={imageBoxBackground}>
-          <Image
+        <div 
+          className="w-full text-center border-b border-[#DEE8EC] bg-[radial-gradient(46.28%_66.31%_at_66.95%_58.35%,#e6e6f7_0%,#e7edfa_50%,#e9fbfa_100%)] dark:bg-linear-to-br dark:from-[rgba(127,127,213,0.2)] dark:via-[rgba(134,168,231,0.2)] dark:to-[rgba(145,234,228,0.2)]"
+        >
+          <img
             src={imageSrc.substring(1)}
             alt={title}
-            borderRadius="md"
-            margin="0px"
-            width="320px"
-            height="243px"
+            className="w-[320px] h-[243px] rounded-md m-0 object-contain"
           />
-        </Box>
-        <VStack
-          spacing="12px"
-          paddingBottom={{ base: "12px", md: "12px" }}
-          paddingTop={{ base: "12px", md: "12px" }}
-          bg={backgroundColor}
-          color={fontColor}
-          align="justify"
-          borderBottomRadius="md"
+        </div>
+        
+        <div 
+          className="flex flex-col space-y-3 py-3 bg-white dark:bg-slate-800 text-slate-800 dark:text-white rounded-b-md"
         >
-          <Heading
-            as="h4"
-            size="md"
-            margin="0 12px 0 12px"
-            color={fontColor}
-            transition="all 0.3s ease-in-out"
-            className="card-heading" // Assigning custom class to heading
+          <h4 
+            className="text-lg font-medium mx-3 transition-all duration-300 hover:text-blue-600 dark:hover:text-orange-400"
           >
             {title}
-          </Heading>
-          <Text fontSize="md" margin="0 12px 0 12px">
+          </h4>
+          
+          <p className="text-md mx-3 text-slate-600 dark:text-slate-300">
             {description}
-          </Text>
-        </VStack>
-      </VStack>
+          </p>
+        </div>
+      </div>
     </Link>
   );
 };

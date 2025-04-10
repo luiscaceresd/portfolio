@@ -1,30 +1,30 @@
 import * as React from "react";
-import { VStack, StackProps } from "@chakra-ui/react";
 
-interface FullScreenSectionProps extends StackProps {
+interface FullScreenSectionProps {
   children: React.ReactNode;
-  isDarkBackground: boolean;
-  backgroundColor?: string;
+  isDarkBackground?: boolean;
+  className?: string;
 }
 
 /**
- * Illustrates the use of children prop and spread operator
+ * Renders a full-screen section with centered content
  */
-const FullScreenSection: React.FC<FullScreenSectionProps> = ({ 
+function FullScreenSection({ 
   children, 
-  isDarkBackground, 
-  ...boxProps 
-}) => {
+  isDarkBackground = false,
+  className = "",
+}: FullScreenSectionProps) {
   return (
-    <VStack
-      backgroundColor={boxProps.backgroundColor}
-      color={isDarkBackground ? "white" : "black"}
+    <section 
+      className={`w-full min-h-screen flex flex-col items-center 
+        ${isDarkBackground ? "text-white dark:text-white" : "text-slate-800 dark:text-white"} 
+        bg-white dark:bg-slate-950 transition-all duration-300 ${className}`}
     >
-      <VStack maxWidth="95%" minHeight="100vh" {...boxProps}>
+      <div className="w-full min-h-screen flex flex-col justify-center items-center">
         {children}
-      </VStack>
-    </VStack>
+      </div>
+    </section>
   );
-};
+}
 
 export default FullScreenSection;

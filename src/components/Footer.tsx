@@ -1,23 +1,15 @@
 import React from "react";
-import {Box, Flex} from "@chakra-ui/react";
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear();
+  
   return (
-    <Box backgroundColor="#18181b">
-      <footer>
-        <Flex
-          margin="0 auto"
-          px={12}
-          color="white"
-          justifyContent="center"
-          alignItems="center"
-          maxWidth="1024px"
-          height={16}
-        >
-          <p>Luisito Codes• © 2023</p>
-        </Flex>
-      </footer>
-    </Box>
+    <footer className="w-full bg-white dark:bg-slate-950 py-4">
+      <div className="mx-auto px-12 text-slate-800 dark:text-slate-200 flex justify-center items-center max-w-[1024px] h-16">
+        <p>Luisito Codes • © {currentYear}</p>
+      </div>
+    </footer>
   );
 };
+
 export default Footer;

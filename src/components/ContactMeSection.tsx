@@ -1,148 +1,44 @@
-import React, { useEffect } from "react";
-import { useFormik, FormikErrors, FormikTouched } from "formik";
-import {
-  Box,
-  Button,
-  FormControl,
-  FormErrorMessage,
-  FormLabel,
-  Heading,
-  Input,
-  Select,
-  Textarea,
-  VStack,
-  useColorModeValue,
-} from "@chakra-ui/react";
-import * as Yup from "yup";
-import FullScreenSection from "./FullScreenSection";
-import useSubmit from "../hooks/useSubmit";
-import { useAlertContext } from "../context/alertContext";
+import React from "react";
+import ContactForm from "./ContactForm";
+import { Mail } from "lucide-react";
 
-interface FormValues {
-  firstName: string;
-  email: string;
-  type: string;
-  comment: string;
-  [key: string]: string;
-}
-
-const ContactMeSection = () => {
-  const { isLoading, response, submit } = useSubmit();
-  const { onOpen } = useAlertContext();
-  const backgroundColor = useColorModeValue("light.background", "dark.background");
-  const fontColor = useColorModeValue("light.text", "dark.text");
-  const borderColor = useColorModeValue("light.border", "dark.border");
-  const buttonColor = useColorModeValue("light.buttonColor", "dark.buttonColor");
-
-  const formik = useFormik<FormValues>({
-    initialValues: {
-      firstName: "",
-      email: "",
-      type: "",
-      comment: "",
-    },
-    onSubmit: (values) => {
-      submit("https://example.com/contactme", values);
-    },
-    validationSchema: Yup.object({
-      firstName: Yup.string().required("Required"),
-      email: Yup.string().email("Invalid email address").required("Required"),
-      comment: Yup.string().required("Required"),
-    }),
-  });
-
-  useEffect(() => {
-    if (response) {
-      onOpen(response.type, response.message);
-      if (response.type === "success") {
-        formik.resetForm();
-      }
-    }
-  }, [response, onOpen, formik]);
-
+function ContactMeSection() {
   return (
-    <FullScreenSection
-      isDarkBackground
-      backgroundColor={backgroundColor}
-      color={fontColor}
-      py={{ base: 4, md: 16 }} // Less padding on the top and bottom on mobile
-      spacing={8}
-      display="flex" // Makes FullScreenSection a flex container
-      flexDirection="column" // Stacks children vertically
-      justifyContent="center" // Centers children vertically
-      alignItems="center" // Centers children horizontally
-      minHeight={{ base: "80vh", md: "10vh" }}
-      minWidth={{ base: "95vw", md: "10vw" }}
-    >
-      <VStack
-        w={{ base: "100%", md: "1024px" }}
-        py={{ base: 8, md: 32 }}
-        alignItems="center"
-      >
-        <Heading as="h1" id="contactme-section" size={{ base: "lg", md: "lg" }}>
-          Contact me
-        </Heading>
-        <Box py={6} rounded="md" w="100%">
-          <form onSubmit={formik.handleSubmit}>
-            <VStack spacing={4}>
-              <FormControl
-                isInvalid={Boolean(formik.errors.firstName && formik.touched.firstName)}
-              >
-                <FormLabel htmlFor="firstName">Name</FormLabel>
-                <Input
-                  id="firstName"
-                  {...formik.getFieldProps("firstName")}
-                />
-                <FormErrorMessage>{formik.errors.firstName}</FormErrorMessage>
-              </FormControl>
-              <FormControl
-                isInvalid={Boolean(formik.errors.email && formik.touched.email)}
-              >
-                <FormLabel htmlFor="email">Email Address</FormLabel>
-                <Input
-                  id="email"
-                  type="email"
-                  {...formik.getFieldProps("email")}
-                />
-                <FormErrorMessage>{formik.errors.email}</FormErrorMessage>
-              </FormControl>
-              <FormControl>
-                <FormLabel htmlFor="type">Type of enquiry</FormLabel>
-                <Select id="type" {...formik.getFieldProps("type")}>
-                  <option value="hireMe">Freelance project proposal</option>
-                  <option value="openSource">
-                    Open source consultancy session
-                  </option>
-                  <option value="other">Other</option>
-                </Select>
-              </FormControl>
-              <FormControl
-                isInvalid={Boolean(formik.errors.comment && formik.touched.comment)}
-              >
-                <FormLabel htmlFor="comment">Your message</FormLabel>
-                <Textarea
-                  id="comment"
-                  height={{ base: 150, md: 250 }} // Adjusted height for responsiveness
-                  {...formik.getFieldProps("comment")}
-                />
-                <FormErrorMessage>{formik.errors.comment}</FormErrorMessage>
-              </FormControl>
-              <Button
-                type="submit"
-                backgroundColor={buttonColor}
-                color={backgroundColor}
-                width="full"
-                isLoading={isLoading}
-                fontSize={{ base: "md", md: "lg" }} // Adjusted font size for responsiveness
-              >
-                Submit
-              </Button>
-            </VStack>
-          </form>
-        </Box>
-      </VStack>
-    </FullScreenSection>
+    <section id="contactme" className="w-full relative py-20 md:py-24 lg:py-32 flex flex-col items-center justify-center
+                      bg-gradient-to-b from-white to-slate-50 dark:from-slate-950 dark:to-slate-900">
+      {/* Decorative elements */}
+      <div className="absolute top-0 inset-x-0 h-40 bg-gradient-to-b from-blue-50/50 to-transparent dark:from-blue-950/20 dark:to-transparent"></div>
+      <div className="absolute bottom-0 inset-x-0 h-40 bg-gradient-to-t from-blue-50/50 to-transparent dark:from-blue-950/20 dark:to-transparent"></div>
+      
+      <div className="relative w-full max-w-4xl px-6 flex flex-col items-center">
+        {/* Section header */}
+        <div className="text-center mb-12 md:mb-16">
+          <div className="mb-4 inline-flex items-center justify-center size-16 rounded-full bg-blue-100/80 dark:bg-blue-900/30">
+            <Mail className="size-8 text-blue-600 dark:text-blue-400" />
+          </div>
+          <h1 className="!text-3xl md:!text-4xl lg:!text-5xl font-bold text-slate-800 dark:text-blue-100">
+            Get in Touch
+          </h1>
+          <p className="mt-4 text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
+            Have a project in mind or want to discuss potential opportunities? I'd love to hear from you!
+          </p>
+          <div className="mt-6 w-20 h-1 bg-gradient-to-r from-blue-400 to-purple-500 mx-auto rounded-full"></div>
+        </div>
+        
+        {/* Form container with shadow */}
+        <div className="w-full max-w-3xl rounded-2xl overflow-hidden shadow-xl dark:shadow-blue-900/10">
+          <ContactForm />
+        </div>
+
+        {/* Additional contact info */}
+        <div className="mt-12 text-center">
+          <p className="text-sm text-slate-500 dark:text-slate-400">
+            Prefer email? Contact me directly at <a href="mailto:luisdeveloper97@outlook.com" className="text-blue-600 dark:text-blue-400 hover:underline">luisdeveloper97@outlook.com</a>
+          </p>
+        </div>
+      </div>
+    </section>
   );
-};
+}
 
 export default ContactMeSection;
