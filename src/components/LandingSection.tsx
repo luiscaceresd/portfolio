@@ -33,29 +33,29 @@ const LandingSection = () => {
 
   return (
     <FullScreenSection>
-      <div className="flex flex-col items-center justify-center w-full gap-6 md:gap-12">
-        <div className="flex flex-col items-center gap-4">
+      <div className="flex flex-col items-center justify-center w-full gap-8 md:gap-16">
+        <div className="flex flex-col items-center gap-6">
           <img
             src={ProfilePicture}
             alt="Luis"
-            className="rounded-full w-24 h-24 md:w-32 md:h-32 border-2 border-gray-300 dark:border-gray-700 shadow-lg transition-transform duration-200 hover:scale-105 cursor-pointer"
+            className="rounded-full w-32 h-32 md:w-40 md:h-40 border-3 border-gray-300 dark:border-gray-700 shadow-xl transition-transform duration-200 hover:scale-105 cursor-pointer"
           />
-          <h1 className="text-2xl md:text-3xl font-bold">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary dark:text-primary">
             Hello, I'm Luis!
           </h1>
         </div>
         
-        <div className="flex flex-col items-center gap-6 md:gap-12">
-          <div className="flex flex-col items-center gap-2 md:gap-4">
-            <h2 className="text-xl md:text-3xl font-semibold text-center">
+        <div className="flex flex-col items-center gap-8 md:gap-12">
+          <div className="flex flex-col items-center gap-3 md:gap-4">
+            <h2 className="text-2xl md:text-4xl lg:text-5xl font-semibold text-center text-slate-800 dark:text-slate-100">
               Full Stack Blockchain Developer
             </h2>
-            <h2 className="text-xl md:text-3xl font-semibold text-center">
+            <h3 className="text-xl md:text-3xl lg:text-4xl font-bold text-center text-blue-600 dark:text-blue-400 decoration-2">
               specialised in React
-            </h2>
+            </h3>
           </div>
           
-          <div className="flex flex-col items-center gap-6 md:gap-12">
+          <div className="flex flex-col items-center gap-6 md:gap-12 mt-4">
             <div className="icon-container">
               <FontAwesomeIcon 
                 icon={['fas', 'angle-down']} 
@@ -69,7 +69,7 @@ const LandingSection = () => {
                 className={hasScrolled ? "icon-show-2" : "icon-hide"}
               />
             </div>
-            <p className={`text-lg md:text-2xl ${hasScrolled ? "enjoy-show" : "icon-hide"}`}>
+            <p className={`text-xl md:text-2xl ${hasScrolled ? "enjoy-show" : "icon-hide"}`}>
               Enjoy!
             </p>
           </div>

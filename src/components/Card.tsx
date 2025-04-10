@@ -1,5 +1,5 @@
-import { Heading, Image, Text, VStack, Box, Link } from "@chakra-ui/react";
 import React from "react";
+import { Link } from "@chakra-ui/react";
 
 interface CardProps {
   title: string;
@@ -8,53 +8,41 @@ interface CardProps {
   href: string;
 }
 
-const Card: React.FC<CardProps> = ({ title, description, imageSrc, href }) => {
+const Card = ({ title, description, imageSrc, href }: CardProps) => {
   return (
-    <Link href={href} isExternal _hover={{ textDecoration: 'none' }}>
-      <VStack
-        spacing="0"
-        align="justify"
-        borderRadius="md"
-        borderWidth="1px"
-        borderColor="currentColor"
-        cursor="pointer"
-        className="shadow-lg dark:shadow-orange-500/30 shadow-blue-500/30 transition-all duration-200 
-                   text-slate-800 dark:text-slate-200 hover:scale-102 hover:opacity-100"
+    <Link
+      href={href}
+      isExternal
+      _hover={{ textDecoration: "none" }}
+      style={{ display: 'block', width: '100%' }}
+    >
+      <div 
+        className="flex flex-col border border-slate-300 dark:border-slate-700 rounded-md shadow-md dark:shadow-[0_4px_12px_rgba(255,115,36,0.8)] hover:scale-[1.02] transition-all duration-200 overflow-hidden"
       >
-        <Box textAlign="center" borderBottom="1px" borderColor="#DEE8EC" 
-             className="bg-gradient-to-br from-slate-100 via-blue-50 to-slate-100 
-                      dark:bg-gradient-to-br dark:from-blue-900/20 dark:via-purple-900/20 dark:to-teal-900/20">
-          <Image
+        <div 
+          className="w-full text-center border-b border-[#DEE8EC] bg-[radial-gradient(46.28%_66.31%_at_66.95%_58.35%,#e6e6f7_0%,#e7edfa_50%,#e9fbfa_100%)] dark:bg-linear-to-br dark:from-[rgba(127,127,213,0.2)] dark:via-[rgba(134,168,231,0.2)] dark:to-[rgba(145,234,228,0.2)]"
+        >
+          <img
             src={imageSrc.substring(1)}
             alt={title}
-            borderRadius="md"
-            margin="0px"
-            width="320px"
-            height="243px"
+            className="w-[320px] h-[243px] rounded-md m-0 object-contain"
           />
-        </Box>
-        <VStack
-          spacing="12px"
-          paddingBottom={{ base: "12px", md: "12px" }}
-          paddingTop={{ base: "12px", md: "12px" }}
-          align="justify"
-          borderBottomRadius="md"
-          className="bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200"
+        </div>
+        
+        <div 
+          className="flex flex-col space-y-3 py-3 bg-white dark:bg-slate-800 text-slate-800 dark:text-white rounded-b-md"
         >
-          <Heading
-            as="h4"
-            size="md"
-            margin="0 12px 0 12px"
-            className="text-slate-800 dark:text-blue-100 transition-colors duration-300 
-                     hover:text-blue-600 dark:hover:text-blue-400"
+          <h4 
+            className="text-lg font-medium mx-3 transition-all duration-300 hover:text-blue-600 dark:hover:text-orange-400"
           >
             {title}
-          </Heading>
-          <Text fontSize="md" margin="0 12px 0 12px">
+          </h4>
+          
+          <p className="text-md mx-3 text-slate-600 dark:text-slate-300">
             {description}
-          </Text>
-        </VStack>
-      </VStack>
+          </p>
+        </div>
+      </div>
     </Link>
   );
 };

@@ -20,7 +20,7 @@ function FullScreenSection({
         ${isDarkBackground ? "text-white dark:text-white" : "text-slate-800 dark:text-white"} 
         bg-white dark:bg-slate-950 transition-all duration-300 ${className}`}
     >
-      <div className="w-full max-w-[95%] min-h-screen flex flex-col justify-center items-center">
+      <div className="w-full min-h-screen flex flex-col justify-center items-center">
         {children}
       </div>
     </section>
