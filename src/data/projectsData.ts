@@ -17,11 +17,11 @@ export const projects: Project[] = [
     tags: ["Next.js", "React", "Supabase", "Prisma", "PostgreSQL"]
   },
   {
-    title: "Bric AI - Business Manager",
-    description: "AI business manager with natural SQL queries, form builder, and comprehensive business tools built with Next.js, Turbo repo, and Supabase.",
+    title: "zeik0 AI - Business Manager",
+    description: "AI business manager Directly integrated with Shopify with natural SQL queries, form builder, and comprehensive business tools built with Next.js, Turbo repo, and Supabase.",
     getImageSrc: () => "/images/photo3.png",
-    url: "https://lezgo-bric.vercel.app/",
-    tags: ["Next.js", "Shadcn", "Supabase", "Vercel AI SDK", "Drizzle"]
+    url: "https://zeik0.com",
+    tags: ["Next.js", "Shadcn", "Supabase", "Vercel AI SDK", "Drizzle", "Turborepo"]
   },
   {
     title: "Compa.Chat - AI Therapist",
