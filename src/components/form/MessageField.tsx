@@ -19,19 +19,14 @@ export function MessageField({ control }: MessageFieldProps) {
       control={control}
       name="message"
       render={({ field }) => (
-        <FormItem className="transition-all duration-200 hover:translate-y-[-2px]">
-          <FormLabel className="font-medium text-slate-700 dark:text-blue-100">
+        <FormItem>
+          <FormLabel className="text-sm font-medium text-slate-700 dark:text-slate-200">
             Message
           </FormLabel>
           <FormControl>
             <Textarea
-              placeholder="Your message"
-              className="min-h-32 md:min-h-60 p-6 rounded-lg shadow-sm border 
-                          bg-slate-50 dark:bg-slate-800/50
-                          border-slate-200 dark:border-slate-700/80
-                          text-slate-900 dark:text-white
-                          focus-visible:ring-blue-400/70
-                          placeholder:text-slate-500 dark:placeholder:text-slate-400"
+              placeholder="Tell me about your project, goals, and timeline."
+              className="min-h-32 rounded-lg border-slate-300 bg-white px-3 py-3 text-slate-950 placeholder:text-slate-500 focus-visible:border-blue-500 focus-visible:ring-blue-500/25 dark:border-white/15 dark:bg-white/[0.06] dark:text-white dark:placeholder:text-slate-400 dark:focus-visible:border-blue-400 dark:focus-visible:ring-blue-400/30"
               {...field}
             />
           </FormControl>

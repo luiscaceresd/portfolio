@@ -17,10 +17,10 @@ import { LoadingSpinner } from "@/components/ui/LoadingSpinner"
 
 // Define form schema with Zod
 const formSchema = z.object({
-  firstName: z.string().min(1, "Name is required"),
+  name: z.string().min(1, "Name is required"),
   email: z.string().email("Invalid email address"),
   type: z.string().optional(),
-  comment: z.string().min(1, "Message is required"),
+  message: z.string().min(1, "Message is required"),
 })
 
 // Infer the type from the schema
@@ -34,16 +34,16 @@ function ContactForm() {
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      firstName: "",
+      name: "",
       email: "",
-      type: "hireMe",
-      comment: "",
+      type: "product-build",
+      message: "",
     },
   })
 
   // Handle form submission
   const onSubmit = (values: FormValues) => {
-    submit("https://example.com/contactme", values)
+    submit("https://formsubmit.co/ajax/luiscaceresd97@gmail.com", values)
   }
 
   // Handle API response
@@ -57,10 +57,9 @@ function ContactForm() {
   }, [response, onOpen, form])
 
   return (
-    <div className="bg-white dark:bg-slate-900/80 rounded-xl p-6 sm:p-8 shadow-xl border 
-                    border-slate-200 dark:border-slate-800/80 backdrop-blur-sm backdrop-filter transition-colors duration-300">
+    <div className="rounded-lg border border-slate-200 bg-slate-50 p-5 shadow-[0_24px_80px_-58px_rgba(15,23,42,0.5)] transition-colors duration-300 dark:border-white/10 dark:bg-white/[0.04] dark:shadow-black/20 sm:p-6">
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-7">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
           <div className="grid gap-5 md:grid-cols-2">
             <NameField control={form.control} />
             <EmailField control={form.control} />
@@ -71,16 +70,13 @@ function ContactForm() {
 
           <Button 
             type="submit" 
-            className="w-full rounded-lg py-6 !text-base font-medium transition-all duration-300 
-                      bg-gradient-to-r from-blue-600 to-blue-500 dark:bg-blue-500 dark:hover:bg-blue-400
-                      hover:shadow-lg hover:shadow-blue-300/20 dark:hover:shadow-blue-500/20 hover:translate-y-[-2px] 
-                      text-white focus:ring-2 focus:ring-blue-500/50"
+            className="h-12 w-full rounded-lg bg-blue-700 text-sm font-semibold text-white transition hover:bg-blue-600 active:translate-y-px"
             disabled={isLoading}
           >
             {isLoading ? 
               <span className="flex items-center justify-center gap-2">
                 <LoadingSpinner />
-                Submitting...
+                Sending...
               </span> : 
               "Submit"
             }

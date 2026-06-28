@@ -46,11 +46,9 @@ export function ThemeProvider({
 
       root.classList.add(systemTheme)
       body.classList.add(systemTheme)
-      console.log("System theme applied:", systemTheme)
       return
     }
 
-    console.log("Theme applied:", theme)
     root.classList.add(theme)
     body.classList.add(theme)
   }, [theme])
@@ -58,7 +56,6 @@ export function ThemeProvider({
   const value = {
     theme,
     setTheme: (theme: Theme) => {
-      console.log("Setting theme to:", theme)
       localStorage.setItem(storageKey, theme)
       setTheme(theme)
     },
