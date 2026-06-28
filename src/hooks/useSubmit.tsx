@@ -46,6 +46,23 @@ const useSubmit = () => {
         throw new Error(`Contact form failed with status ${result.status}`);
       }
 
+      const body = await result.text();
+      if (body) {
+        try {
+          const payload = JSON.parse(body) as { success?: string | boolean; message?: string };
+
+          if (payload.success === false || payload.success === "false") {
+            throw new Error(payload.message || "Contact form submission failed");
+          }
+        } catch (error) {
+          if (error instanceof SyntaxError) {
+            // FormSubmit may respond with HTML even for the ajax endpoint.
+          } else {
+            throw error;
+          }
+        }
+      }
+
       setResponse({
         type: "success",
         message: `Thanks ${data.name}. Your message was sent to Luis.`
