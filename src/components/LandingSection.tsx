@@ -1,172 +1,73 @@
-import React, { useState, useEffect } from "react";
-import { useTheme } from "@/components/theme-provider";
-import { GoChevronDown } from "react-icons/go";
-import { FaSmile } from "react-icons/fa";
-import FullScreenSection from "./FullScreenSection";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { HiOutlineChevronDown, HiOutlineChevronUp } from "react-icons/hi";
+import { ArrowDownRight, ArrowUpRight } from "lucide-react";
 
 const LandingSection = () => {
-  const { theme } = useTheme();
-  const [hasScrolled, setHasScrolled] = useState(false);
-  const [showBackToTop, setShowBackToTop] = useState(false);
-  const [currentGreeting, setCurrentGreeting] = useState("Hello, I'm Luis!");
-  const [isAnimating, setIsAnimating] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      // Change the scroll threshold as per your requirement
-      if (window.scrollY > 100) {
-        setHasScrolled(true);
-      } else {
-        setHasScrolled(false);
-      }
-
-      // Show back to top only when scrolled significantly
-      if (window.scrollY > 500) {
-        setShowBackToTop(true);
-      } else {
-        setShowBackToTop(false);
-      }
-    };
-
-    // Add scroll event listener
-    window.addEventListener("scroll", handleScroll);
-
-    // Clean up
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
-  };
-
-  useEffect(() => {
-    const greetings = [
-      "Hello, I'm Luis!",
-      "¡Hola, soy Luis!",
-      "Bonjour, je suis Luis!"
-    ];
-    let currentIndex = 0;
-
-    const cycleGreetings = () => {
-      setIsAnimating(true);
-      
-      setTimeout(() => {
-        currentIndex = (currentIndex + 1) % greetings.length;
-        setCurrentGreeting(greetings[currentIndex]);
-        setIsAnimating(false);
-      }, 500);
-    };
-
-    const intervalId = setInterval(cycleGreetings, 5000);
-
-    return () => clearInterval(intervalId);
-  }, []);
-
-  // Determine gradient based on theme
-  const getGradient = () => {
-    if (theme === "dark") {
-      // Rich, vibrant gradient for dark mode with multiple color stops
-      return 'linear-gradient(135deg, #ff6b6b, #ff9e5e, #ffbd4f, #ffa441, #ff7e47, #ff5e62)';
-    } else {
-      return 'linear-gradient(90deg, #3b82f6, #8b5cf6, #6366f1, #3b82f6)'; // Blue/purple gradient for light mode
-    }
-  };
-
-  // Animation duration based on theme
-  const getAnimationDuration = () => {
-    return theme === "dark" ? "10s" : "8s";
-  };
-
   return (
-    <>
-      <FullScreenSection>
-        <div className="flex flex-col items-center justify-center w-full gap-8 md:gap-16">
-          <div className="flex flex-col items-center gap-2">
-            <div className="relative rounded-full size-32 md:size-40 overflow-hidden border-3 border-gray-300 dark:border-gray-700 shadow-xl transition-transform duration-200 hover:scale-105 cursor-pointer">
-              <img
-                src="/ProfilePic.jpeg"
-                alt="Luis"
-                className="w-full h-full object-cover object-center"
-              />
-            </div>
-            
-            <div className="w-full flex justify-center pt-4 pb-8">
-              <h1 
-                className={`text-4xl md:text-5xl lg:text-6xl font-bold text-transparent transition-all duration-500 ease-in-out px-4 leading-normal ${
-                  isAnimating ? "opacity-0 transform -translate-y-4 scale-95" : "opacity-100 transform translate-y-0 scale-100"
-                }`}
-                style={{
-                  lineHeight: "1.5",
-                  paddingTop: "0.25em",
-                  paddingBottom: "0.25em",
-                  display: "inline-block",
-                  backgroundImage: getGradient(),
-                  backgroundSize: '400% 400%',
-                  backgroundClip: 'text',
-                  animation: `gradient-x ${getAnimationDuration()} ease-in-out infinite alternate`
-                }}
-              >
-                {currentGreeting}
-              </h1>
-            </div>
+    <section className="relative overflow-hidden bg-white pt-28 text-slate-950 dark:bg-slate-950 dark:text-white md:pt-24">
+      <div className="mx-auto grid w-full max-w-7xl items-center gap-10 px-4 pb-12 md:min-h-[720px] md:px-8 lg:grid-cols-[1.02fr_0.98fr]">
+        <div className="max-w-3xl">
+          <h1 className="max-w-4xl text-4xl font-semibold leading-[1.04] tracking-tight text-slate-950 dark:text-white sm:text-5xl md:text-6xl lg:text-7xl">
+            Software for hard product problems.
+          </h1>
+          <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600 dark:text-slate-300">
+            AI agents, commerce, booking systems, and operational tools built end to end.
+          </p>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <a
+              href="#contactme"
+              className="inline-flex h-12 items-center justify-center rounded-lg bg-blue-700 px-6 text-sm font-semibold text-white transition hover:bg-blue-600 active:translate-y-px"
+            >
+              Contact
+            </a>
+            <a
+              href="#projects"
+              className="inline-flex h-12 items-center justify-center gap-2 rounded-lg border border-slate-300 px-6 text-sm font-semibold text-slate-950 transition hover:border-blue-700 hover:text-blue-700 active:translate-y-px dark:border-white/20 dark:text-white dark:hover:border-blue-400 dark:hover:text-blue-300"
+            >
+              View work
+              <ArrowDownRight className="size-4" />
+            </a>
           </div>
-          
-          <div className="flex flex-col items-center gap-8 md:gap-12">
-            <div className="flex flex-col items-center gap-3 md:gap-4">
-              <h2 className="text-2xl md:text-4xl lg:text-5xl font-semibold text-center text-slate-800 dark:text-slate-100">
-                Full Stack Blockchain Developer
-              </h2>
-              <h3 className="text-xl md:text-3xl lg:text-4xl font-semibold text-center text-indigo-500 dark:text-amber-300 tracking-wide">
-                specialised in React, Next.js and AI
-              </h3>
-            </div>
-            
-            <div className="flex flex-col items-center gap-6 md:gap-12 mt-4">
-              <div className="relative w-10 h-10 flex items-center justify-center">
-                {!hasScrolled && (
-                  <div className="absolute inset-0 flex items-center justify-center animate-bounce">
-                    <HiOutlineChevronDown 
-                      className="h-8 w-8 text-indigo-500 dark:text-amber-300 opacity-70"
-                    />
+        </div>
+
+        <div className="relative">
+          <div className="overflow-hidden rounded-lg border border-slate-200 bg-slate-100 shadow-[0_40px_120px_-70px_rgba(15,23,42,0.8)] dark:border-white/10 dark:bg-white/5">
+            <div className="grid sm:grid-cols-[0.9fr_1.1fr]">
+              <div className="relative min-h-[280px] bg-slate-900 sm:min-h-[420px]">
+                <img
+                  src="/ProfilePic.jpeg"
+                  alt="Luis Caceres"
+                  className="absolute inset-0 h-full w-full object-cover"
+                />
+              </div>
+              <div className="flex min-h-[300px] flex-col justify-between bg-slate-950 p-6 text-white sm:min-h-[420px]">
+                <div>
+                  <p className="text-sm font-medium text-blue-300">Luis Caceres</p>
+                  <p className="mt-3 max-w-[18rem] text-2xl font-semibold tracking-tight">
+                    Senior full-stack engineer focused on shipping real product systems.
+                  </p>
+                </div>
+                <div className="space-y-3 text-sm text-slate-300">
+                  <div className="rounded-md border border-white/10 p-3">
+                    AI agents, commerce, bookings, dashboards
                   </div>
-                )}
-                <div className={`absolute inset-0 flex items-center justify-center ${hasScrolled ? "opacity-100" : "opacity-0"} transition-opacity duration-500`}>
-                  <FontAwesomeIcon 
-                    icon={['fab', 'ethereum']} 
-                    size="2x" 
-                    className="text-indigo-500 dark:text-amber-300"
-                  />
+                  <div className="rounded-md border border-white/10 p-3">
+                    React, Next.js, Supabase, Postgres, Vercel
+                  </div>
+                  <a
+                    href="https://github.com/luiscaceresd"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-blue-300 hover:text-blue-200"
+                  >
+                    GitHub
+                    <ArrowUpRight className="size-4" />
+                  </a>
                 </div>
               </div>
-              <p className={`text-xl md:text-2xl ${hasScrolled ? "enjoy-show" : "icon-hide"}`}>
-                Enjoy!
-              </p>
             </div>
           </div>
         </div>
-      </FullScreenSection>
-
-      {/* Back to top button */}
-      <button 
-        onClick={scrollToTop}
-        className={`fixed bottom-6 right-6 p-2 rounded-full bg-slate-100/80 dark:bg-slate-800/50 
-                  shadow-md border border-slate-200 dark:border-slate-700/50
-                  text-indigo-500 dark:text-amber-300
-                  transition-all duration-300 z-50
-                  hover:bg-white dark:hover:bg-slate-700 hover:cursor-pointer
-                  ${showBackToTop ? 'opacity-70 scale-100' : 'opacity-0 scale-75 pointer-events-none'}`}
-        aria-label="Back to top"
-      >
-        <HiOutlineChevronUp className="w-6 h-6" />
-      </button>
-    </>
+      </div>
+    </section>
   );
 };
 

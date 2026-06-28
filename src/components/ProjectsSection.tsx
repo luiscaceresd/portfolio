@@ -1,53 +1,19 @@
-import React, { useState, useEffect } from "react";
-import FullScreenSection from "./FullScreenSection";
 import ProjectsGrid from "./projects/ProjectsGrid";
 import ProjectsHeader from "./projects/ProjectsHeader";
-import ProjectsLoading from "./projects/ProjectsLoading";
 import { projects } from "../data/projectsData";
+import type { Project } from "../data/projectsData";
 
-// Define the project type
-export type Project = {
-  title: string;
-  description: string;
-  getImageSrc: () => string;
-  url: string;
-  tags: string[];
-};
+export type { Project };
 
 const ProjectsSection = () => {
-  const [imagesLoaded, setImagesLoaded] = useState(false);
-
-  useEffect(() => {
-    // Preload all images to avoid layout shifts
-    const imagePromises = projects.map((project) => {
-      return new Promise((resolve, reject) => {
-        const img = new Image();
-        img.src = project.getImageSrc();
-        img.onload = resolve;
-        img.onerror = reject;
-      });
-    });
-
-    Promise.allSettled(imagePromises).then(() => {
-      setImagesLoaded(true);
-    });
-  }, []);
-
   return (
-    <section id="projects">
-      <FullScreenSection
-        isDarkBackground={false}
-        className="py-16 flex flex-col items-start space-y-8"
-      >
-        <div className="w-full flex flex-col items-center space-y-8">
+    <section id="projects" className="scroll-mt-24 bg-white py-20 text-slate-950 dark:bg-slate-950 dark:text-white md:py-28">
+      <div className="mx-auto w-full max-w-7xl px-4 md:px-8">
+        <div className="flex w-full flex-col gap-10">
           <ProjectsHeader />
-          {imagesLoaded ? (
-            <ProjectsGrid projects={projects} />
-          ) : (
-            <ProjectsLoading />
-          )}
+          <ProjectsGrid projects={projects} />
         </div>
-      </FullScreenSection>
+      </div>
     </section>
   );
 };

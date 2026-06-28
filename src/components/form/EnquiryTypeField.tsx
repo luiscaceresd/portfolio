@@ -25,28 +25,21 @@ export function EnquiryTypeField({ control }: EnquiryTypeFieldProps) {
       control={control}
       name="type"
       render={({ field }) => (
-        <FormItem className="transition-all duration-200 hover:translate-y-[-2px]">
-          <FormLabel className="font-medium text-slate-700 dark:text-blue-100">
-            Type of Enquiry
+        <FormItem>
+          <FormLabel className="text-sm font-medium text-slate-700 dark:text-slate-200">
+            Project type
           </FormLabel>
           <Select onValueChange={field.onChange} defaultValue={field.value}>
             <FormControl>
-              <SelectTrigger className="h-14 p-6 w-full rounded-lg shadow-sm
-                                      bg-slate-50 dark:bg-slate-800/50 
-                                      border-slate-200 dark:border-slate-700/80
-                                      text-slate-900 dark:text-white
-                                      focus-visible:ring-blue-400/70">
-                <SelectValue placeholder="Select type of enquiry" />
+              <SelectTrigger className="h-11 w-full rounded-lg border-slate-300 bg-white px-3 text-slate-950 focus-visible:border-blue-500 focus-visible:ring-blue-500/25 dark:border-white/15 dark:bg-white/[0.06] dark:text-white dark:focus-visible:border-blue-400 dark:focus-visible:ring-blue-400/30">
+                <SelectValue placeholder="What type of project are you building?" />
               </SelectTrigger>
             </FormControl>
-            <SelectContent className="rounded-lg border 
-                                    bg-white dark:bg-slate-800
-                                    border-slate-200 dark:border-slate-700
-                                    text-slate-900 dark:text-white
-                                    shadow-md">
-              <SelectItem value="freelance">Freelance project proposal</SelectItem>
-              <SelectItem value="opportunity">Job opportunity</SelectItem>
-              <SelectItem value="question">General question</SelectItem>
+            <SelectContent className="rounded-lg border border-slate-200 bg-white text-slate-950 shadow-md dark:border-slate-700 dark:bg-slate-950 dark:text-white">
+              <SelectItem value="product-build">Product build</SelectItem>
+              <SelectItem value="ai-automation">AI automation</SelectItem>
+              <SelectItem value="ecommerce">Ecommerce</SelectItem>
+              <SelectItem value="consulting">Consulting</SelectItem>
             </SelectContent>
             <FormMessage className="text-xs text-red-400" />
           </Select>

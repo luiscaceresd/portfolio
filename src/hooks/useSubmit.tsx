@@ -1,52 +1,60 @@
 import { useState } from "react";
 
-// Define types for the response
-type ResponseType = 'success' | 'error';
+type ResponseType = "success" | "error";
 
 interface SubmitResponse {
   type: ResponseType;
   message: string;
 }
 
-// Define type for submit data
 export interface SubmitData {
-  firstName: string;
+  name: string;
   email: string;
   type?: string;
-  comment: string;
-  [key: string]: string | undefined;
+  message: string;
 }
 
-const wait = (ms: number): Promise<void> => 
-  new Promise((resolve) => setTimeout(resolve, ms));
+const FORMSUBMIT_ENDPOINT = "https://formsubmit.co/ajax/luiscaceresd97@gmail.com";
 
-/**
- * This is a custom hook that simulates an API call for form submission
- * It uses Math.random() to simulate a 50% chance of success or failure
- */
 const useSubmit = () => {
   const [isLoading, setLoading] = useState(false);
   const [response, setResponse] = useState<SubmitResponse | null>(null);
 
-  const submit = async (url: string, data: SubmitData): Promise<void> => {
-    const random = Math.random();
+  const submit = async (_url: string, data: SubmitData): Promise<void> => {
     setLoading(true);
-    
+    setResponse(null);
+
     try {
-      await wait(2000);
-      
-      if (random < 0.5) {
-        throw new Error("Something went wrong");
+      const formData = new FormData();
+      formData.append("name", data.name);
+      formData.append("email", data.email);
+      formData.append("project_type", data.type || "Not specified");
+      formData.append("message", data.message);
+      formData.append("_subject", `Portfolio contact from ${data.name}`);
+      formData.append("_template", "table");
+      formData.append("_captcha", "false");
+
+      const result = await fetch(FORMSUBMIT_ENDPOINT, {
+        method: "POST",
+        headers: {
+          Accept: "application/json"
+        },
+        body: formData
+      });
+
+      if (!result.ok) {
+        throw new Error(`Contact form failed with status ${result.status}`);
       }
-      
+
       setResponse({
-        type: 'success',
-        message: `Thanks for your submission ${data.firstName}, we will get back to you shortly!`,
+        type: "success",
+        message: `Thanks ${data.name}. Your message was sent to Luis.`
       });
     } catch (error) {
       setResponse({
-        type: 'error',
-        message: 'Something went wrong, please try again later!',
+        type: "error",
+        message:
+          "The form could not send right now. Email Luis directly at luiscaceresd97@gmail.com."
       });
     } finally {
       setLoading(false);

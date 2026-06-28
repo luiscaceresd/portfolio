@@ -6,9 +6,6 @@ interface FullScreenSectionProps {
   className?: string;
 }
 
-/**
- * Renders a full-screen section with centered content
- */
 function FullScreenSection({ 
   children, 
   isDarkBackground = false,
@@ -16,11 +13,11 @@ function FullScreenSection({
 }: FullScreenSectionProps) {
   return (
     <section 
-      className={`w-full min-h-screen flex flex-col items-center 
+      className={`w-full min-h-[100dvh] flex flex-col items-center 
         ${isDarkBackground ? "text-white dark:text-white" : "text-slate-800 dark:text-white"} 
         bg-white dark:bg-slate-950 transition-all duration-300 ${className}`}
     >
-      <div className="w-full min-h-screen flex flex-col justify-center items-center">
+      <div className="w-full min-h-[100dvh] flex flex-col justify-center items-center">
         {children}
       </div>
     </section>
