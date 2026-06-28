@@ -42,8 +42,8 @@ function ContactForm() {
   })
 
   // Handle form submission
-  const onSubmit = (values: FormValues) => {
-    submit("https://formsubmit.co/ajax/luiscaceresd97@gmail.com", values)
+  const onSubmit = async (values: FormValues) => {
+    await submit("https://formsubmit.co/ajax/luiscaceresd97@gmail.com", values)
   }
 
   // Handle API response

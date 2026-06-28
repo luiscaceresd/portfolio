@@ -1,4 +1,4 @@
-import {createContext, useContext, useState, ReactNode} from "react";
+import { createContext, ReactNode, useCallback, useContext, useMemo, useState } from "react";
 
 // Define the shape of the context
 interface AlertContextType {
@@ -19,20 +19,31 @@ interface AlertProviderProps {
 export const AlertProvider = ({ children }: AlertProviderProps) => {
   const [state, setState] = useState({
     isOpen: false,
-    // Type can be either "success" or "error"
     type: 'success',
-    // Message to be displayed, can be any string
     message: '',
   });
 
+  const onOpen = useCallback((type: string, message: string) => {
+    setState({ isOpen: true, type, message });
+  }, []);
+
+  const onClose = useCallback(() => {
+    setState((current) =>
+      current.isOpen ? { isOpen: false, type: '', message: '' } : current
+    );
+  }, []);
+
+  const value = useMemo(
+    () => ({
+      ...state,
+      onOpen,
+      onClose,
+    }),
+    [state, onOpen, onClose]
+  );
+
   return (
-    <AlertContext.Provider
-      value={{
-        ...state,
-        onOpen: (type: string, message: string) => setState({ isOpen: true, type, message }),
-        onClose: () => setState({ isOpen: false, type: '', message: '' }),
-      }}
-    >
+    <AlertContext.Provider value={value}>
       {children}
     </AlertContext.Provider>
   );
